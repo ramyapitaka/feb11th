@@ -1,0 +1,29 @@
+body{
+    margin: 5px;
+    padding: 10px;
+}
+p{
+    text-align: justify;
+}
+.tab2,.row2{
+    border:2px solid black;
+    border-collapse: collapse;
+}
+.tab1es{
+    border-collapse: collapse;
+}
+.row1{
+    text-align: left;
+    border-bottom:1px solid black;
+}
+.page{
+    text-align: right;
+}
+.box{
+    display:inline-block;
+    background-color: black;
+    color: white;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+}

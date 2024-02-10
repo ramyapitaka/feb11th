@@ -1,0 +1,2246 @@
+<html>
+<head lang="en">
+    <meta charset="UTF_8">
+    <meta name="viewport" content="width=device-width,initial-scale=0.1">
+    <title>XML</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+          href= 
+"https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+          integrity= 
+"sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5"
+          crossorigin="anonymous">
+</head>
+    <body>
+        <p style="margin-left: 80px;">place notification blocks on the queue. Applications and methods can delete
+notification queues by deleting the EKG_NotificationQueue object using the
+EKG_DeleteObject function. When it creates the queue, RODM automatically
+qualifies the name of any notification queue with the User_appl_ID from the access
+block. Each notification queue created with a particular User_appl_ID must be
+unique.</p>
+        <p style="margin-left: 80px;">Table 21 describes the fields of the EKG_NotificationQueue class, the access for
+each field, the data type, and the subfields defined for each field.</p>
+        <p style="margin-left: 30px;">Table 21. EKG_NotificationQueue Fields</p>
+          <table class="tab1es" style="margin-left:30px; ">
+               <tr>
+                   <th class="row1">Field Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Access&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Data Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Change&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Notify &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Time<br>Stamp&nbsp;&nbsp;</th>
+                    
+               </tr>
+              <tr>
+                   <td class="row1">EKG_Status</td>
+                   <td class="row1">Write</td>
+                   <td class="row1">Enumerated Smallint</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1">X</td>
+                   <td class="row1">X</td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">EKG_ECBAddress   </td>
+                   <td class="row1">Write</td>
+                   <td class="row1">ECBAddress</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1">X</td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">  EKG_ECBPostedStatus  </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">Enumerated Smallint</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"> X </td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">  EKG_UsedBy  </td>
+                   <td class="row1">Read </td>
+                   <td class="row1">ObjectLink</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1"> EKG_SubscribedFromClass    </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">ClassLinkList</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1"> EKG_SubscribedFromObject  </td>
+                   <td class="row1">Read </td>
+                   <td class="row1">ObjectLinkLis </td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">  EKG_Maximum_Q_Entries  Integer  </td>
+                  <td class="row1">  Write    </td>
+                   <td class="row1">Integer</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1">X</td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1"> EKG_MessagesOnQueue   </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">Integer</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1"> EKG_SubscribedForDelete     </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">ObjectIDLis</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td> 
+               </tr>
+        </table>
+        <p style="margin-left: 60px;">The field definitions are as follows:</p>
+        <h5 style="margin-left: 60px;">EKG_Status</h5>
+        <p style="margin-left: 80px;">The status of the notification queue. The following values are valid:</p>
+        <p style="margin-left: 80px;">Value&nbsp &nbsp &nbsp &nbsp Meaning</p>
+        <p style="margin-left: 80px;">0 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Inactive</p>
+        <p style="margin-left: 80px;">1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Active</p>
+        <p style="margin-left: 80px;">Active status causes RODM to attach notifications to this queue regardless of
+the ECB value. If a queue accumulates entries when no ECB has been
+established, RODM posts the ECB as soon as the application sets an ECB
+value.</p>
+        <p style="margin-left: 80px;">Inactive status causes RODM to not attach notifications even if the ECB is
+already set. This field has a default value of active except in the following
+situation. User_A creates a notification queue for User_B and there is no user
+object for User_B. RODM creates the required objects, sets EKG_Status in the
+NotificationQueue object to inactive, and sets the EKG_Status of the user object
+to disconnected.</p>
+        <h5 style="margin-left: 60px;" >EKG_ECBAddress</h5>
+        <p style="margin-left: 80px;">The address of an ECB. This is the address of the optional ECB that is posted
+when a notification block is added to this notification queue. The ECB is
+created in the address space of the user application that is using this
+notification queue.</p>
+        <h5 style="margin-left: 60px;">EKG_ECBPostedStatus</h5>
+        <p style="margin-left: 80px;">Posted status. Valid values are as follows:</p>
+        <h5 style="margin-left: 80px;" >Value &nbsp &nbsp &nbsp &nbsp Meaning</h5>
+        <p class="page" >201</p>
+        <p style="margin-left: 80px;">0 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp False</p>
+        <p style="margin-left: 80px;">1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp True</p>
+        <p style="margin-left: 80px;">This field is set to true if the application has been posted and the queue is not
+empty. This field is set to false when the queue is empty</p>
+        <h5 style="margin-left: 60px;">EKG_UsedBy</h5>
+        <p style="margin-left: 80px;">This field specifies the user that created this notification queue.</p>
+        <h5 style="margin-left: 60px;">EKG_SubscribedFromClass</h5>
+        <p style="margin-left: 80px;">This field is a list of classes that have a subscription to this notification queue.
+            The field is a one-way link.</p>
+<p style="margin-left: 80px;">The field has a data type of ClassLinkList; each list item consists of a ClassID
+and a FieldID. The field referenced by the FieldID contains subscription
+information in the form of a RecipientSpec data type. The RecipientSpec data
+type contains an 8-byte SubscribeID that your application can use to locate the
+notification queue object. For information about these data types, see “Abstract
+Data Type Reference” on page 219</p>
+        <h5 style="margin-left: 60px;">EKG_SubscribedFromObject</h5>
+        <p style="margin-left: 80px;">This field is a list of objects that have a subscription to this notification queue.
+            The field is a one-way link.</p>
+<p style="margin-left: 80px;">The field has a data type of ObjectLinkList; each list item consists of an
+ObjectID and a FieldID. The field referenced by the FieldID contains
+subscription information in the form of the RecipientSpec data type. The
+RecipientSpec data type contains an 8-byte SubscribeID that your application
+can use to locate the notification queue object. For information about these
+data types, see “Abstract Data Type Reference” on page 219.</p>
+        <h5 style="margin-left: 60px;">EKG_MessagesOnQueue</h5>
+        <p style="margin-left: 80px;">The number of messages currently on the EKG_NotificationQueue.</p>
+        <h5 style="margin-left: 60px;">EKG_Maximum_Q_Entries</h5>
+        <p style="margin-left: 80px;">The maximum number of entries permitted on the EKG_NotificationQueue.
+You can use this field to limit the amount of RODM storage used for unread
+notifications. When the number of messages on the EKG_NotificationQueue
+reaches the value of EKG_Maximum_Q_Entries, RODM does not place any
+more messages on the queue. RODM issues return code 4 with reason code 158
+to the notification method which explains that the message cannot be placed
+on the queue.</p>
+        <p style="margin-left: 80px;">The default setting of this field is -1, which indicates no limit.</p>
+        <h5 style="margin-left: 60px;">EKG_SubscribedForDelete</h5>
+        <p style="margin-left: 80px;">This field is a list of objects that have an object-deletion subscription to this
+            notification queue.</p>
+<p style="margin-left: 80px;">The field has a data type of ObjectIDList; each list item consists of an ObjectID.
+For information about these data types, see “Abstract Data Type Reference” on
+page 219.</p>
+        <h3 style="margin-left: 60px;">EKG_Method Class</h3>
+        <p style="margin-left: 60px;">EKG_Method is the class of all RODM methods.</p>
+        <p style="margin-left: 60px;">The parent of EKG_Method class is EKG_SystemDataParent class.</p>
+<p style="margin-left: 60px;">Before your application program can refer to a method in a function request or
+trigger a method, the method must:</p>
+        <p class="page">202</p>
+        <ul>
+            <li style="margin-left: 60px;">Have an object of the EKG_Method class that represents it</li>
+            <li style="margin-left: 60px;">v Be present in memory or you must load it into memory through a method
+installation process</li></ul>
+            <p style="margin-left: 60px;">If RODM cannot find or load the method, it generates an error return code. For
+more information about installing methods, see “Installing and Freeing Methods”
+on page 360.</p>
+        
+        <p style="margin-left: 60px;">When a method object is created, that method name is made executable for both
+user API and method API functions. A method has different available functions or
+different abilities to access data depending on whether it is an object-specific
+method or an object-independent method. You can write a method that is both an
+            object-specific method and an object-independent method.</p>
+<p style="margin-left: 60px;">The object name of the EKG_Method object you create is the same as the name of
+the method you are installing. You can identify all installed methods by querying
+    the EKG_Method class using the EKG_QueryEntityStructure function.</p>
+<p style="margin-left: 60px;">The null method that is supplied with the NetView program, NullMeth, is not
+    installed by user creation of an object. This method is built into RODM.</p>
+<p style="margin-left: 60px;">You also use an object of the RODM Method class during the refreshing of the
+method. Refreshing is accomplished by using the EKG_TriggerNamedMethod
+function to invoke the method indicated by the EKG_Refresh field in the method
+object of the method which is to be refreshed. Refreshing deletes the old copy of
+the method from memory and loads a new copy of the method for all future
+    references.</p>
+<p style="margin-left: 60px;">You can create or delete all fields of EKG_Method.
+Table 22 describes the fields of EKG_Method class, the access for each field, the
+data type, and the applicable operations.</p>
+    <p style="margin-left: 60px;"><i>Table 22. EKG_Method Fields</i></p>
+    <table class="tab1es" style="margin-left:60px; ">
+               <tr>
+                   <th class="row1">Field Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Access&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Data Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Change&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Notify &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th class="row1">Time<br>Stamp&nbsp;&nbsp;</th>
+                    
+               </tr>
+              <tr>
+                   <td class="row1">EKG_InstallerID  </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">CharVar</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1">X</td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">  EKG_UsageCount   </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">Integer</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">EKG_Refresh     </td>
+                   <td class="row1">Read</td>
+                   <td class="row1">MethodSpec</td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1">  </td>
+                   <td class="row1"></td>
+                  
+               </tr>
+              <tr>
+                   <td class="row1">   EKG_MTraceFlag   </td>
+                   <td class="row1">Write</td>
+                   <td class="row1">Integer </td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1"></td>
+                   <td class="row1">X</td>
+                  
+               </tr>
+    </table>
+    <p style="margin-left: 60px;">The field definitions are as follows:</p>
+<h5 style="margin-left: 60px;" >EKG_InstallerID</h5>
+    <p style="margin-left: 80px;">The user ID associated with the installation of the method. The timestamp
+subfield indicates when the method was installed.</p>
+    <h5 style="margin-left: 60px;">EKG_UsageCount</h5>
+<p style="margin-left: 80px;">The current number of references of this method from notify, change, and
+query subfields, and from value subfields used for named methods. When you
+delete an object of the EKG_Method class, the usage count, EKG_UsageCount,
+must be zero. When you refresh an object of the EKG_Method class, there is no
+    restriction on value of EKG_UsageCount.</p>
+    <h5 style="margin-left: 60px;">EKG_Refresh</h5>
+<p style="margin-left: 80px;">The name of an internal RODM refresh method that must be invoked to</p>
+    <p class="page">203</p>
+    <p style="margin-left: 80px;">refresh the method represented by the method object. If an application queries
+the EKG_Refresh value subfield, RODM returns a null value for the Object_ID
+        field of the MethodSpec data.</p>
+<p style="margin-left: 80px;">When the refresh method is triggered using the EKG_TriggerNamedMethod
+API, RODM loads a new copy of the method from the method library. The
+Method_parms field of the EKG_TriggerNamedMethod function block is not
+    used by the refresh method.</p>
+<p style="margin-left: 80px;">A method can be refreshed even though it is currently referenced in notify, change, or query subfields. The refresh operation will wait until the method is
+not executing before loading the new copy of the method. Subsequent
+executions of the method are suspended until the new copy has been loaded.</p>
+    <h5 style="margin-left: 60px;">EKG_MTraceFlag</h5>
+<p style="margin-left: 80px;">Specific method trace enable flag. This field specifies if the method is enabled
+for tracing. Valid values are as follows:</p>
+     <h5 style="margin-left: 80px;" >Value &nbsp &nbsp &nbsp &nbsp &nbsp  Meaning</h5>
+    <p style="margin-left: 80px;">0 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Defers the trace decision to EKG_MTraceType.
+ </p>
+        <p style="margin-left: 80px;">1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ensures tracing. </p>
+    <p style="margin-left: 80px;">The initial value is 0.</p>
+    <p style="margin-left: 80px;">Tracing must also be enabled by the EKG_MTraceType field in the EKG_User
+class before RODM can trace this method.</p>
+    <h5 style="margin-left: 60px;">Deleting an Object of the EKG_Method Class:</h5>
+    <p style="margin-left: 60px;">Deleting a method object checks
+whether the specified method is assigned to any field or subfield as a named,
+change, query, or notify method. If not, the method is removed from RODM's
+active methods and the corresponding load module can be freed from memory.</p>
+    <p style="margin-left: 60px;">If the method is an object-specific method and is referenced by one or more fields,
+then it cannot be deleted until all such references are first removed. To remove
+these references to an object-specific method prior to deleting a method:</p>
+    <ul style="margin-left: 40px;" >
+    <li>Change the fields that have a data type of MethodSpec and reference the
+object-specific method to the null value (NullMeth) using the EKG_ChangeField
+or EKG_ChangeMultipleFields functions.</li> <li> Change all subfield that have a data type of MethodSpec and reference the
+object-specific method to the null value (NullMeth) using the
+EKG_ChangeSubfield function. </li><li> Remove the notification subscriptions for the notification method using the
+EKG_DeleteNotifySubscription function.</li></ul>
+    <hr>
+    <h3 style="margin-left: 10px;">RODM Objects</h3>
+<p style="margin-left: 60px;">Objects are the basic units of data in RODM. They are organized by class and
+represented by a name containing up to 254 characters. Objects can represent
+real-world objects, such as DASD devices or printers. Objects can also represent
+management objects, such as a view on a graphical display, operator access
+authority, or an application program. Objects can contain locally defined data or
+inherit data from a class.</p>
+<p style="margin-left: 60px;">User applications and object-independent methods can create objects using the
+EKG_CreateObject function. You can also create objects using the RODM load
+function. When you create an object, you specify the name of the object and the</p>
+    <p class="page">204</p>
+    <p style="margin-left: 60px;">class to which the object belongs. RODM returns the numerical object identifier of
+the new object. The object inherits the public fields that are defined on the class to
+        which the object belongs.</p>
+    <h4 style="margin-left: 40px;">Object Names</h4>
+    <p style="margin-left: 60px;">Each RODM object has a character string name in its MyName field called the
+        <i>object name.</i> </p>
+        <p style="margin-left: 60px;">Two objects, each in a separate class, can have the same object name. Each object
+can be accessed with the combination of its class name and object name in the
+        form Class_Name.Object_Name.</p>
+<p style="margin-left: 60px;">RODM system-defined object names are reserved by RODM and cannot be deleted
+    by the user.</p>
+    <p style="margin-left: 60px;">RODM assigns an object name to any object you create if you do not specify a
+name when you create the object. RODM assigns names of the form EKGddddddd, where ddddddd ranges from 0000000 to 9999999, starting with EKG0000001. Note
+        that values in this range are for RODM use only.</p>
+    <p style="margin-left: 60px;">If you are creating an object of the EKG_Method class or the
+EKG_NotificationQueue class, the object name is limited to 8 characters. For the
+EKG_NotificationQueue class, if the user ID and object name are combined to
+produce a fully qualified notification queue name in the form
+User_appl_ID.object_name, the resulting fully qualified notification queue name is
+        limited to 17 characters, including the separating period.</p>
+    <p style="margin-left: 60px;">
+The CHARACTER_VALIDATION keyword in EKGCUST specifies what degree of
+validity checking RODM performs for characters used in class names (see “Class
+Names” on page 191), field names (see “Field Names” on page 206), and object
+names.</p>
+    <h4 style="margin-left: 60px;">Object Name Characteristics with<br>
+CHARACTER_VALIDATION(YES)</h4>
+    <p style="margin-left: 60px;">When CHARACTER_VALIDATION(YES), which is the default, is coded in
+EKGCUST, valid object names have the following characteristics:</p>
+    
+
+    <ul style="margin-left: 40px;" >
+
+    <li>The name consists of 1 to 254 characters with an abstract data type of
+ObjectName that conforms to the PL/I syntax of CHAR(254) VARYING.</li>
+        <li>v The first character of the string must be alphabetic or numeric. The others, if
+any, can be alphabetic, numeric, or any of the special characters: # @ . , : ; ? ( ) ' "
+- _ & + % * = < > /</li>
+<li> Both uppercase and lowercase alphabetic characters are permitted, and names
+    are case-sensitive. </li>
+        <li>The EKG_ prefix is reserved for RODM-created classes and objects. Do not use
+this prefix in the names of classes or objects that you create.</li>
+        <li>EKGxxxxxxx (EKG followed by seven digits) is reserved for RODM use only. Do
+            not use this format for the names of objects that you create.</li>
+        <li>Each object in a class must have a unique object name. v RODM supports a maximum of 2097135 objects.</li></ul>
+    <h3    style="margin-left: 60px;" >Object Name Characteristics with CHARACTER_VALIDATION(NO)</h3>
+<p style="margin-left: 60px;">When CHARACTER_VALIDATION(NO) is coded in EKGCUST, valid object names
+have the following characteristics:</p>
+    <p class="page">205</p>
+    <ul style="margin-left: 40px;">
+    <li>The name consists of 1 to 254 characters with an abstract data type of
+        ObjectName that conforms to the PL/I syntax of CHAR(254) VARYING.</li>
+        <li>The first character cannot be the number sign (#) because it is reserved for
+            MultiSystem Manager.</li>
+        <li>Blank characters are not valid.</li>
+        <li>Null characters are not valid.</li>
+        <li>Both uppercase and lowercase alphabetic characters are permitted, and names
+            are case-sensitive.</li>
+        <li>The EKG_ prefix is reserved for RODM-created classes and objects. Do not use
+            this prefix in the names of classes or objects that you create.</li>
+        <li>EKGxxxxxxx (EKG followed by seven digits) is reserved for RODM use only. Do
+            not use this format for the names of objects that you create.</li>
+        <li>Each object in a class must have a unique object name.</li>
+        <li>RODM supports a maximum of 2097135 objects.
+</li></ul>
+    <h4 style="margin-left: 30px;">Object Identifiers</h4>
+<p style="margin-left: 60px;">To minimize access time, RODM supports another approach to accessing an object.
+Any object in any class can be accessed in RODM based solely on the ObjectID of
+the object. RODM provides functions that convert the fully qualified "class
+name.object name" to an ObjectID, and convert the ObjectID to the fully qualified
+    "class name.object name".</p>
+<p style="margin-left: 60px;">You can locate objects using any one of the specifications listed here, which are
+listed in decreasing order of search performance:</p>
+    <p style="margin-left: 60px;">1. ObjectID</p>
+    <p style="margin-left: 60px;">2. ClassID plus ObjectName</p>
+<p style="margin-left: 60px;">3. ClassName plus ObjectName</p>
+    <hr>
+    <h4 style="margin-left: 10px;">RODM Fields</h4>
+<p  style="margin-left: 60px;">All classes consist of fields that are either public or private, but not both. They
+must have a field name, and RODM assigns a field identifier. RODM supports a
+    maximum of 4079 fields.</p>
+<p  style="margin-left: 60px;">Fields within objects can contain information about the relationships among objects
+defined in RODM. You can determine these relationships by examining RODM
+    classes and objects.</p>
+    <h4 style="margin-left: 40px;">Field Names</h4>
+<p style="margin-left: 60px;">Each RODM field has a character string name, called the field name. RODM
+system-defined field names are reserved by RODM and cannot be deleted by the
+user. See “System-Defined Fields” on page 207 for a list of the RODM
+    system-defined fields.</p>
+    <p style="margin-left: 60px;">The CHARACTER_VALIDATION keyword in EKGCUST specifies what degree of
+validity checking RODM performs for characters used in object names (see “Object
+Names” on page 205), class names (see “Class Names” on page 191), and field
+    names.</p>
+    <h4 style="margin-left: 60px;">Field Name Characteristics with CHARACTER_VALIDATION(YES)</h4>
+<p style="margin-left: 60px;">When CHARACTER_VALIDATION(YES), which is the default, is coded in
+EKGCUST, valid field names have the following characteristics:</p>
+    <p class="page">206</p>
+    <ul style="margin-left: 30px;">
+    <li>
+        The name consists of 1 to 64 characters with a data type of ShortName that
+        conforms to the PL/I syntax of CHAR(64) VARYING.</li>
+        <li>The first character cannot be the number sign (#) because it is reserved for
+MultiSystem Manager.</li>
+        <li>v The first character of the string must be alphabetic or numeric. The others, if
+any, can be alphabetic, numeric, the break character (_), the commercial at sign
+            (@), the number sign (#), or the period (.).</li>
+        <li>You can use both uppercase and lowercase alphabetic characters. Field names
+are case-sensitive under RODM, regardless of whether your application
+            translates them into a single case.</li></ul>
+    <h4 style="margin-left: 60px;">Field Name Characteristics with CHARACTER_VALIDATION(NO)</h4>
+<p style="margin-left: 60px;">When CHARACTER_VALIDATION(NO) is coded in EKGCUST, valid field names
+    have the following characteristics: </p>
+    <ul style="margin-left: 30px;"><li>The name consists of 1 to 64 characters with a data type of ShortName that
+conforms to the PL/I syntax of CHAR(64) VARYING.</li>
+        <li>v Blank characters are not valid.</li>
+        <li>Null characters are not valid.</li>
+        <li>You can use both uppercase and lowercase alphabetic characters. Field names
+are case-sensitive under RODM, regardless of whether your application
+translates them into a single case.</li></ul>
+    <h4 style="margin-left: 40px;">Field Identifiers</h4>
+<p style="margin-left: 60px;">RODM assigns a 4-byte field identifier to each field. A field identifier is a symbolic
+representation of the name of a field. You can assign it and compare it to other
+    field IDs. 
+    You can use a field ID instead of a field name to address the field
+through the user API. Using a field ID to address a field through the API is more
+efficient than using the field name. RODM includes the EKG_QueryFieldName
+function to convert a FieldID to a field name and the EKG_QueryFieldID function
+    to convert a field name to a FieldID.</p>
+<p style="margin-left: 60px;">RODM-generated internal identifiers exist because they are faster to process than
+are character string names. These identifiers are always given preference over
+    character string names in resolving which field is to be addressed.</p>
+<p style="margin-left: 60px;">For example, if both the Field_ID and the Field_name_length parameters are not
+null in a field access information block, the Field_ID is used, and the
+Field_name_ptr parameter is ignored. RODM does not check that a supplied
+Field_ID is consistent with a supplied field name. See Table 31 on page 317 for the
+    format and parameters in a field access information block.</p>
+<p style="margin-left: 60px;">Field identifiers differentiate field names from each other without regard to the
+class or object where the field is located, a field identifier obtained for a field of
+one class or object can be reused for any field with the identical name regardless of
+the class or object. A field name does not contain any information about the class
+or object with which it is associated; however, the classes and objects include the
+information of what fields they contain.</p>
+    <h4 style="margin-left: 40px;">System-Defined Fields</h4>
+<p style="margin-left: 60px;">System-defined fields are fields that are predefined by RODM and must exist for
+every class and object. These fields and their values are never inherited; RODM
+creates the fields and sets their values when it creates or changes the object or class</p>
+<p class="page">207</p>
+<p style="margin-left: 60px;">to which they belong. Application programs and methods cannot change the contents of these fields through the user API or the method API.</p>
+<p style="margin-left: 60px;">The names of the system-defined fields are reserved names in RODM. You cannot
+    define other fields in classes using these same names.</p>
+<p style="margin-left: 60px;">Of the system-defined fields, only the MyClassChildren, MyObjectChildren and
+WhatIAm fields change during RODM execution. Therefore, these are the only
+    system-defined fields for which a notify subfield can be created.</p>
+<p style="margin-left: 60px;"><b>Note:</b> Notification methods assigned to these fields to detect deletions of class or
+object children cannot access the deleted class or object. RODM executes the
+    notification method after it completes the delete process.</p>
+<p style="margin-left: 60px;">Every RODM class and object contains the following system-defined fields:</p>
+<h5 style="margin-left: 60px;">MyPrimaryParentID</h5>
+<p style="margin-left: 80px;">The class ID of the parent class in the primary hierarchy. For objects, this
+field contains the class ID of the class of the object. For classes (other than
+the universal-class), this field contains the class ID of the parent class in
+the primary hierarchy. The universal-class is the only class that has no
+parent, and therefore, a null MyPrimaryParentID field.
+    The data type of this field is ClassID.</p>
+<h5 style="margin-left: 60px;">MyPrimaryParentName</h5>
+<p style="margin-left: 80px;">The name of the parent class in the primary hierarchy. </p>
+<p style="margin-left: 80px;">The data type of this field is ShortName.</p>
+<h5 style="margin-left: 60px;">MyID</h5><p style="margin-left: 80px;"> The ID of the object or class upon which the field resides. For objects, the
+contents of MyID is the object ID. For classes, the contents of MyID is the
+    class ID.</p>
+<p style="margin-left: 80px;">The data type of this field is ObjectID for objects and ClassID for classes.</p>
+<h5 style="margin-left: 60px;">MyName</h5>
+<p style="margin-left: 80px;">The full name of the current object or class. For objects, this field contains
+    the object name. For classes, this field contains the class name.</p>
+<p style="margin-left: 80px;">The data type of this field is ObjectName for objects and ShortName for
+classes</p>
+<h5 style="margin-left: 60px;">WhatIAm</h5>
+<p style="margin-left: 80px;">The object or class type.
+    The data type for this field is Integer and has the following values:</p>
+<p style="margin-left: 80px;">1 &nbsp &nbsp &nbsp &nbsp An object</p>
+<p style="margin-left: 80px;">2 &nbsp &nbsp &nbsp &nbsp A class with no children</p>
+<p style="margin-left: 80px;">3 &nbsp &nbsp &nbsp &nbsp A class with object children</p>
+<p style="margin-left: 80px;">4&nbsp &nbsp &nbsp &nbsp A class with class children</p>
+<p style="margin-left: 80px;">5&nbsp &nbsp &nbsp &nbsp A class with both class children and object children</p>
+<p style="margin-left: 60px;">Every RODM class contains the following additional system-defined fields:</p>
+<h5 style="margin-left: 60px;">MyClassChildren</h5>
+<p style="margin-left: 80px;"d>A list of class IDs of the class children of this class. Each entry in the list is
+the class ID of one child class.</p>
+<p class="page">208</p>
+<p style="margin-left: 80px;">The data type of this field is ClassIDList.</p>
+<p style="margin-left: 80px;">When a class is created, the value of this field is set to null. Thereafter, entries are added, set, and deleted from this list by the creation and
+deletion of classes that are specified at creation as having this class as
+    primary parent.</p>
+<h5 style="margin-left: 60px;">MyObjectChildren</h5>
+<p style="margin-left: 80px;">A list of object IDs of the object children of this class. Each entry in the list
+    is the object ID of one child object.</p>
+<p style="margin-left: 80px;">Data type is ObjectIDList.</p>
+<p style="margin-left: 80px;">When a class is created, the value of this field is set to null. Thereafter, entries are added, set, and deleted from this list by the creation and
+deletion of objects that are specified at creation as having this class as
+    primary parent.</p>
+<p style="margin-left: 60px;">The MyClassChildren and MyObjectChildren fields are never created for objects.</p>
+<hr>
+<h4 style="margin-left: 10px;">RODM Subfields</h4>
+<p style="margin-left: 60px;">The RODM data types, defined in “Abstract Data Type Reference” on page 219,
+restrict the values that RODM considers valid for a field. But network management
+applications require more information about a field than just its value. A field must
+contain several pieces of data or logic to be useful in a data cache that stores both
+persistent and volatile information.</p>
+<p style="margin-left: 60px;">When a field is created, RODM automatically creates a value subfield for the field.
+If no other subfields are explicitly defined for the field, any reference to the field is
+    the same as a reference to the value subfield of the field.</p>
+<p style="margin-left: 60px;">Suppose that the dominant value to be preserved in the
+number_of_waiting_print_jobs field of a printer object is the number of print jobs
+waiting to be printed. This value is volatile and the contents of this field are of
+little use if the value is several hours old. Suppose also that you can save the
+number of jobs waiting to be printed and also the time at which the value was
+obtained. You can now use this timestamp to invalidate the data that is old and
+    indicate that current data is required.</p>
+<p style="margin-left: 60px;">A time stamp alone does not solve the problem. When an application requests the
+contents of the number_of_waiting_print_jobs field, there must be some logic in place
+to compare the contents of the timestamp with the current time and take an
+appropriate action based on the age of the data in the field. The design of RODM
+permits a field to be composed of several subfields. These subfields can refer to
+methods that can be set to automatically do such things as check time stamps
+    before responding to a query. </p>
+<p style="margin-left: 60px;">There is a fixed list of subfields that can appear in a field. All subfields are
+optional except for the value subfield, which contains the data stored in the field
+and so must exist if the field exists. The following list contains each kind of
+    subfield and its intended use.</p>
+<p style="margin-left: 60px;">The value and prev_val subfields have the same data type as the corresponding
+field. All other subfields have predetermined data types that are set based on the
+kind of subfield. The data type of each subfield is specified in the following list
+along with a description of each subfield. When a subfield is created, RODM
+assigns it a null value based on the subfield data type requirements.</p>
+<p class="page">209</p>
+<p style="margin-left: 60px;">
+RODM defines the following subfields:</p>
+<h5 style="margin-left: 60px;"
+>Value (Required)</h5>
+<p style="margin-left: 80px;"
+>The actual data associated with the field. The value is defined in terms of
+    RODM abstract data types, such as Integer, CharVar, or Floating.</p>
+<p style="margin-left: 80px;"
+>The data type must be one of those defined in “Abstract Data Type Reference”
+on page 219 and is identical to the data type of the field. The value subfield is
+the only system-defined subfield of a field. All other subfields are optional
+with their presence obtained by a transaction against the field of the class
+    through the user API.</p>
+<h5 style="margin-left: 60px;"
+>Query</h5>
+<p style="margin-left: 80px;"
+>A method specification (data type MethodSpec) for a query method.</p>
+<ul style="margin-left: 60px;"
+><li>Querying a field invokes a query method if this subfield has a value.</li>
+<li>A query method can modify the queried data from a field.</li></ul>
+<p style="margin-left: 80px;">
+The query subfield contains a method that is invoked before the field contents
+are returned to a caller in response to a query of the field. If a query method is
+defined, the query method is responsible for returning a value in response to
+    the query. If a query method does not return a value in response to the query, RODM returns one.</p>
+<p style="margin-left: 80px;"
+>The data type of a query subfield is MethodSpec. The MethodSpec type
+includes the object identifier of the method to be invoked, plus a list of
+    parameters to be passed to the method.</p>
+<p style="margin-left: 80px;">
+The parameters indicate fields of the object that the user has set up to be used
+by the method. The parameters in those fields are most frequently set when
+the method is installed in the subfield. However, some or all of those
+parameters can be set by assigning values to the corresponding fields
+immediately before the query transaction that triggers the query method is
+    requested.</p>
+<h5 style="margin-left: 60px;"
+>Change</h5>
+<p style="margin-left: 80px;"
+>A method specification for a change method.</p>
+<ul style="margin-left: 60px;"
+><li>A change field request invokes a change method if this subfield has a value. </li>
+<li>A change method modifies the data in the field on which it is defined.</li></ul>
+<p style="margin-left: 80px;">
+The change subfield is a method that is invoked to change the contents of a
+field as requested by an EKG_ChangeField or EKG_ChangeMultipleFields
+function request, either from a user outside of RODM, or by another method.
+If a field receives a change request and has a change subfield, the change
+method must make the change to the value of field; RODM does not change
+    the value of a field that has a change subfield defined.</p>
+<p style="margin-left: 80px;">
+The data type of a change subfield is MethodSpec. The subfield includes the ID
+of a method and the locations in fields of the object where parameters for the
+    method are to be found.</p>
+<p style="margin-left: 80px;"
+>The change subfield cannot exist for any system-defined field, such as
+MyName, MyID, MyPrimaryParentID, MyPrimaryParentName, WhatIAm,
+    MyClassChildren, and MyObjectChildren.</p>
+<h5 style="margin-left: 60px;"
+>Notify</h5> 
+<p style="margin-left: 80px;">
+    A method specification for one or a list of notification methods.</p>
+<ul style="margin-left: 60px;"
+><li>Changing a field invokes a notification method if this subfield has value.
+RODM invokes the notification method after the change in the field is
+complete.</li>
+<li>A notify method can notify subscribed users of changes to fields.</li></ul>
+<p class="page">210</p>
+
+<p style="margin-left: 80px;">The notify subfield contains a list of methods and associated parameters. Each
+method in the list is invoked one at a time after every change in the value of
+the field as requested by a change request from a user. Methods in the list are
+intended to notify other objects or to notify RODM users when changes in
+    state take place. The data type of each entry in the list is SubscriptSpec.</p>
+<p style="margin-left: 80px;">The data type of the subfield is SubscriptSpecList. A method name, parameters
+for the method from object fields, and a description of who is to be notified are
+included in each entry. When the method is invoked, the logic in the method
+decides, based on the data in the object, whether to notify anyone. The method
+can notify the original subscriber or it can be programmed to notify another
+application or to submit transactions to other RODM objects. Notification
+methods can submit transactions, other than the EKG_QueryObjectName
+function, to other RODM objects only through the
+    EKG_MessageTriggeredAction method API function.</p>
+<h5 style="margin-left: 60px;">Timestamp</h5>
+<p>The time at which the value subfield of the field was last changed. RODM
+manages this subfield. This subfield is read-only. The data type of the subfield
+    is TimeStamp.</p>
+<p style="margin-left: 80px;">The timestamp subfield is created and deleted using the EKG_CreateSubfield
+and EKG_DeleteSubfield functions. When it is defined, RODM updates the
+timestamp subfield for every successful change transaction against the field,
+including when the new value is the same as the old value. The timestamp
+subfield is always associated with the value subfield of the same field. A
+change transaction against the value subfield, rather than against the field,
+does not cause the timestamp subfield to be updated. If you issue the
+EKG_RevertToInherited function and the field contains a local value and
+corresponding time-stamp, the time-stamp subfield is also reverted to its
+    inherited value.</p>
+<h5 style="margin-left: 60px;">Prev_val</h5>
+<p style="margin-left: 80px;">A copy of the previous contents of the value subfield. RODM manages this
+subfield. This subfield is read-only. The data type of this subfield is the same
+as the data type of the value subfield. You cannot create a prev_val subfield for
+system-defined fields. See “Data Types for Subfields” for a list of abstract data
+    types that the prev_val field can contain.</p>
+<p style="margin-left: 80px;">The prev_val subfield is created and deleted using the EKG_CreateSubfield
+and EKG_DeleteSubfield functions. When it is defined, RODM updates the
+prev_val subfield for every successful change transaction against the field,
+including when the new value is the same as the old value. The prev_val
+subfield is always associated with the value subfield of the same field. A
+change transaction against the value subfield, rather than against the field,
+does not cause the prev_val subfield to be updated. If you issue the
+EKG_RevertToInherited function and the field contains a local value and
+corresponding prev_val, the prev_val subfield is also reverted to its inherited
+    value.</p>
+<h4 style="margin-left: 60px;">Data Types for Subfields</h4>
+<p style="margin-left: 80px;">Certain RODM abstract data types can be used for each subfield. The abstract data
+    types are defined in “Abstract Data Type Reference” on page 219.</p>
+<h5 style="margin-left: 60px;">Subfield</h5>
+<h5 style="margin-left: 80px;">Valid Abstract Data Types</h5>
+<h5 style="margin-left: 60px;">Value</h5>
+        <ul style="margin-left: 60px;"><li>AnonymousVar</li>
+<p class="page">211</p>
+    <li>BERVar</li>
+    <li>CharVar</li>
+    <li> FieldID</li>
+    <li>Floating</li>
+    <li>GraphicVar</li>
+    <li>IndexList</li>
+    <li>Integer</li>
+    <li>MethodSpec</li>
+    <li>ObjectLink</li>
+    <li>ObjectLinkList</li>
+    <li>SelfDefining</li>
+    <li>Smallint</li>
+    <li>imeStampT</li></ul>
+    <h5 style="margin-left: 60px;">Query</h5>
+<ul  style="margin-left: 60px;"><li>MethodSpec</li></ul>
+    <h5 h5 style="margin-left: 60px;">Change</h5>
+<ul  style="margin-left: 60px;"><li>MethodSpec</li></ul>
+    <h5 style="margin-left: 60px;">Notify</h5>
+<ul  style="margin-left: 60px;"><li>SubscriptSpecList</li></ul>
+    <h5 style="margin-left: 60px;">Time Stamp</h5>
+<ul  style="margin-left: 60px;"><li>TimeStamp</li></ul>
+    <h5 style="margin-left: 60px;">Prev_val</h5>
+<ul  style="margin-left: 60px;"><li>AnonymousVar</li>
+<li>BERVar</li>
+<li>CharVar</li>
+<li>FieldID</li>
+<li>Floating</li>
+<li>GraphicVar</li>
+<li>IndexList</li>
+<li>Integer</li>
+<li>MethodSpec</li>
+<li>SelfDefining</li>
+<li>Smallint</li> 
+<li>TimeStamp</li>
+</ul>  
+<h3  style="margin-left: 10px;">Multivalued Fields and Links between Objects</h3>
+<p  style="margin-left: 60px;">RODM permits the use of multivalued fields to establish the relationships between
+    objects. Multivalued fields support the creation of one-to-one, one-to-many, many-to-one, and many-to-many relationships between objects.</p>
+<p  style="margin-left: 60px;"><i>Note: </i>The links described in this section are RODM-defined relational links. These
+links are defined between two objects in the RODM data cache and must not be
+confused with physical links, such as network links, which are represented by
+    GMFHS-defined link objects.</p>
+<p  style="margin-left: 60px;">The EKG_LinkNoTrigger and EKG_LinkTrigger functions enable user applications
+and methods to create links between two objects. The EKG_UnlinkNoTrigger and
+EKG_UnlinkTrigger functions enable user applications and methods to delete links
+between two objects. Use an ObjectLink type field to link to one object. Use an
+    ObjectLinkList type field to link to one or more objects. An ObjectLink field of one</p>
+<p class="page">212</p>
+<p style="margin-left: 60px;">object always links to an ObjectLink or ObjectLinkList field of another object. An
+ObjectLinkList field of one object always links to ObjectLink or ObjectLinkList
+    fields of other objects.</p>
+<p style="margin-left: 60px;">The reserved data types ObjectID and ObjectIDList are used by RODM for links
+between system-defined fields. These system-defined fields, such as the
+MyObjectChildren field, are managed by RODM and cannot be changed directly
+    by user applications or methods.</p>
+<p style="margin-left: 60px;">Figure 38 shows single-value links using fields of data type ObjectLink and a
+multivalue link using a field of data type ObjectLinkList</p>
+<img style="margin-left: 80px;"  src="Screenshot (419).png">
+<p style="margin-left: 80px;"><i>Figure 38. Examples of Links between Objects in RODM</i></p>
+<p style="margin-left: 80px;">Figure 38 contains three RODM objects. Two of the objects represent host
+processors in a network, and the third object is a resource type object which is
+used to identify types of objects. Each of the two host objects, NETA.A01MPU and
+NETV.B01MPU, has a single-value link to the resource type object. The resource
+type object, DUIXC_RTS_HOST, has a multivalue link to each of the two host
+objects.</p>
+<p style="margin-left: 80px;">The object NETA.A01MPU has a field named DisplayResourceType, which is data
+type ObjectLink. The DisplayResourceType field contains the ObjectID (<span class="box">I</span>) of the
+object being linked to (<span class="box">J</span>), and the FieldID (<span class="box">L</span>) of the field being linked to (<span class="box">M</span>).</p>
+<p class="page">213</p>
+<p style="margin-left: 80px;">The object NETB.B01MPU also has a field named DisplayResourceType linked to
+the field Resource of object DUIXC_RTS_HOST. DisplayResourceType contains the
+ObjectID (<span class="box">K</span>) of DUIXC_RTS_HOST (<span class="box">J</span>) and the FieldID (<span class="box">N</span>) of Resources
+(<span class="box">M</span>).</p>
+<p style="margin-left: 80px;">The object DUIXC_RTS_HOST has the field Resources that is linked to both of the
+host objects. The ObjectLinkList field Resources contains the number of objects it is
+linked to (<span class="box">O</span>). The first list element of Resources contains the ObjectID (<span class="box">A</span>) of
+object NETA.A01MPU (<span class="box">B</span>) and the FieldID (<span class="box">C</span>) of field DisplayResourceType
+(<span class="box">D</span>). The second list element of Resources contains the ObjectID (<span class="box">E</span>) of object
+NETB.B01MPU (<span class="box">F</span>) and the FieldID (<span class="box">G</span>) of field DisplayResourceType (<span class="box">H</span>).</p>
+<p style="margin-left: 80px;">When you create links using the EKG_LinkNoTrigger or EKG_LinkTrigger
+functions, you specify the pair of objects and fields to be linked, and RODM fills in
+the ObjectID and FieldID values in both objects. Both objects must exist in RODM
+before they can be linked.</p>
+<h4 style="margin-left: 60px;">Link and Unlink Action Functions</h4>
+<p style="margin-left: 80px;">The link and unlink action functions can be invoked by users through the method
+API and user API. The EKG_LinkNoTrigger function and the EKG_LinkTrigger
+function are used to establish a link between two fields on two objects. The
+EKG_UnlinkNoTrigger function and the EKG_UnlinkTrigger function delete a link
+between two objects. Each of these functions require two objects and two fields
+specified through the Entity_access_info_ptr and Field_access_info_ptr parameters.
+The fields must be of data type ObjectLinkList or ObjectLink. See
+“EKG_LinkNoTrigger, EKG_LinkTrigger - Link Two Objects” on page 407 and
+“EKG_UnlinkNoTrigger, EKG_UnlinkTrigger - Unlink Two Objects” on page 448
+    for function block formats and additional details.</p>
+<p style="margin-left: 80px;">Fields that are lists or of type ObjectLink are changed only by link and unlink
+actions. For these actions, there are always two fields involved, one at each end of
+the link. Change methods can be defined to these fields. These change methods are
+triggered by the EKG_LinkTrigger or EKG_UnlinkTrigger functions. The change
+methods must set a return code with EKG_SetReturnCode to indicate whether the
+    link or unlink can proceed. </p>
+<ul style="margin-left: 60px;"><li>A nonzero return code prevents the link or unlink.</li> 
+    <li>If no change method exists on one (or both) of the fields, RODM assumes the
+        return code is zero and the link or unlink proceeds.</li>
+    <li>If a change method exists, but it does not set the return code explicitly, RODM
+        assumes the return code is zero and the link or unlink proceeds.</li></ul>
+<p style="margin-left: 80px;">The change methods are triggered in the order in which the fields appear in the
+    function block.</p>
+<p style="margin-left: 80px;">To be symmetric, the RODM program invokes the appropriate notify methods at
+both ends of a link when a link or unlink action is requested and the subfields
+exist at both ends of the link. If two methods are invoked, the one invoked first is
+the top field specified in the function block that specifies the desired action. For
+notify methods, first one list is processed, then the other list is processed. If the
+link or unlink is prevented by the nonzero return code, the notify methods are not
+    triggered.</p>
+<p style="margin-left: 80px;">Link and unlink action functions are applicable only in linking two objects
+together. It is not possible, using the link action function, to link a class to another
+class or object. An object inherits the existence of fields of type ObjectLink from its</p>
+<p class="page">214</p>
+<p p style="margin-left: 80px;">
+class, but an object can only inherit the null value from its class for these fields.
+Likewise, in the hierarchy of classes, the existence of fields of type ObjectLink is
+    inherited by children classes, but values in all such fields are null.</p>
+<p style="margin-left: 80px;">If the type of a field to be linked is ObjectLinkList, the link action creates a new
+entry in the list and sets that entry to contain the ObjectID and FieldID of the other
+object-field pair. Links constructed for fields of data type ObjectLinkList are not
+guaranteed to be ordered within the field according to any particular algorithm
+like FIFO or LIFO. If the type is a simple ObjectLink, the value of that field is set
+to contain the ObjectID and FieldID of the other object-field pair. Because the link
+applies to each object-field pair, it establishes a two-way link between the two
+objects. Unlink removes such links. Link and unlink actions are the only actions
+    available to RODM users that change fields of type ObjectLink.</p>
+<p  style="margin-left: 80px;">If a field is a single ObjectLink, a query of that field yields a response of type
+ObjectLink, which is an 8-byte ObjectID followed immediately by a 4-byte FieldID
+for a total of twelve bytes. If a field is an ObjectLinkList, a query of the field
+through either the user API or method API causes an array of ObjectLink entries to
+be returned to the user. In other words, each element in the array is a 12-byte pair
+of ObjectID and FieldID. RODM users cannot query the entries of an
+    ObjectLinkList, individually. </p>
+<p style="margin-left: 80px;">The same principle applies to queries of a MyObjectChildren field. A query of such
+a field yields an array where each element in the array is of data type ObjectID for
+MyObjectChildren field. The length of the array is identical to the length of the list
+    in the queried field.</p>
+<p style="margin-left: 80px;">Links between objects established with the link action function are used to
+represent both peer-to-peer relationships and to represent secondary parent-child
+relationships. Primary parent-child relationships are required and are embodied in
+the system-defined fields MyClassChildren, and MyObjectChildren of objects and
+classes.</p>
+<h4 style="margin-left: 60px;">Subfields Associated with Fields</h4>
+<h4 style="margin-left: 80px;"></h4>
+You cannot create a query subfield for fields that are of data types ObjectLink or
+ObjectLinkList. For fields that are not of data types ObjectLink or ObjectLinkList,
+the value subfield is the single field entry and can be queried and manipulated
+without triggering methods. For fields that are of data types ObjectLink or
+ObjectLinkList, the value subfield consists of an entire list of entries, and the value
+    subfield can only be queried without triggering a query method.
+<p style="margin-left: 80px;">
+Change transactions are not applicable to fields of data types ObjectLink or
+ObjectLinkList, and similarly, change transactions are not applicable to the value
+subfield of a field that is of data types ObjectLink or ObjectLinkList. Only link and
+unlink functions exist for changing the values in fields of type ObjectLinkList, and
+    only creation and deletion of children changes a MyObjectChildren field.</p>
+<p style="margin-left: 80px;">
+To perform the link and unlink action functions, without triggering notify methods,
+the RODM program supports the EKG_LinkNoTrigger function and the
+    EKG_UnlinkNoTrigger function.</p>
+<p style="margin-left: 80px;">The subfields possible for fields that are of type ObjectLink are query, notify, and
+timestamp subfields. For fields of type ObjectLink and ObjectLinkList, change
+subfields are enabled. However, the RODM program supports only one subfield
+for the entire list; separate subfields are not supported for each entry in the list.</p>
+<p class="page">215</p>
+<p style="margin-left: 80px;">Any change to any entry of the list is considered a change to the entire list.
+Therefore, if there is a notify list, any change to any entry in the list of links (the
+    field) results in all the methods in the notify list being invoked.</p>
+<p style="margin-left: 80px;">If a child object inherits the existence of a field that is of data types ObjectLink or
+ObjectLinkList, the child object also sees the field as a data type ObjectLink or
+ObjectLinkList field. But the RODM program does not support the inheritance of
+values in fields of data types ObjectLink or ObjectLinkList. The entries in fields of
+data types ObjectLink or ObjectLinkList are independent of the entries in any other
+fields of data types ObjectLink or ObjectLinkList. They are created one at a time by
+the EKG_LinkNoTrigger function or the EKG_CreateObject function, and they are
+deleted one at a time by the EKG_UnlinkNoTrigger function or the
+EKG_DeleteObject function.</p>
+<hr>
+<h4 style="margin-left: 10px;">Indexed Fields</h4>
+<p style="margin-left: 80px;">The EKG_Locate function retrieves a list of Object IDs of objects having a specified
+value in a specified field. This function makes it easier for an application to
+retrieve the list of Object IDs. Rather than scanning the user's entire data model
+using the query field functions (looking for the specified field and value), the
+    application invokes the EKG_Locate function with the desired field and field value.</p>
+<p style="margin-left: 80px;">For a field to be located by the EKG_Locate function, that field must have been
+created as a public_indexed field. For public_indexed fields, RODM maintains
+tables of Object IDs by field name and field value. Because additional processing is
+required to maintain these tables, users must create public_indexed fields only for
+fields that exploit the EKG_Locate function. An example of this is a data model
+with Employees as a class, each employee name as an object under that class, and
+EmployeePhoneNumber as an indexed field. In this example, an application can
+locate all of the objects that have a specified phone number in field
+EmployeePhoneNumber without performing a query on every object in the data
+    model.</p>
+<p style="margin-left: 80px;">Indexed Fields can be of CharVar or IndexList data type. IndexList fields generate
+multiple ObjectID table entries - one for each value in the list. For both CharVar
+and IndexList, EKG_Locate accepts one character string (maximum length 254
+    bytes) for comparison, pointed to by Indexed_data_ptr.</p>
+<p style="margin-left: 80px;">See “Indexed Fields” on page 488 for performance-related information about
+    defining public_indexed fields.</p>
+<hr>
+<h4 style="margin-left: 10px;">Object and Class Locking in RODM</h4>
+<p style="margin-left: 80px;">RODM now controls locking automatically. The following functions are no longer
+    necessary, but remain available for compatibility with existing applications. </p>
+<ul style="margin-left: 80px;"><li>EKG_LockObjectList function</li>
+    <li>EKG_UnlockAll function</li></ul>
+<p style="margin-left: 80px;">No changes to existing applications that use these functions are required.</p>
+    <hr>
+    <h4 style="margin-left: 10px;">Using the Application Program Interfaces</h4>
+<p style="margin-left: 80px;">This section briefly explains the two RODM application program interfaces.</p>
+<p class="page">216</p>
+<h4 style="margin-left: 60px;">User Application Program Interface (API)</h4>
+<p style="margin-left: 80px;">A RODM user application is an external program that accesses RODM data
+through the user API to perform a task. This RODM user application can be coded
+in any language that enables you to meet the parameter passing conventions of
+    RODM. However, RODM supplies control block structures only for PL/I and C.</p>
+<p style="margin-left: 80px;">Figure 39 illustrates how user applications access RODM data in a z/OS
+environment using EKGUAPI, the user API module. The steps for coding a full
+RODM application are described in Chapter 11, “Writing Applications that Use
+RODM,” on page 305.</p>
+<img style="margin-left: 80px;" src="Screenshot (421).png">
+<p style="margin-left: 80px;">Figure 39. RODM System Structure (z/OS)</p>
+<h4 style="margin-left: 60px;">Method Application Program Interface (API)</h4>
+<p style="margin-left: 80px;">Methods are small executable programs that reside in the RODM address space.
+Methods can be invoked by user applications,The NetView program supplies several general-purpose methods that might meet by changes to fields in RODM, by
+other methods, and at RODM initialization.</p>
+<p style="margin-left: 80px;">your needs; if not, you can write your own using PL/I or C.</p>
+<p style="margin-left: 80px;">Figure 39 illustrates how methods access RODM data in a z/OS environment using
+EKGMAPI, the method API module. The steps and information associated with
+coding a RODM method are described in Chapter 13, “Writing RODM Methods,”
+on page 343.</p>
+<p class="page">217</p>
+<h4 style="margin-left: 10px;">RODM Abstract Data Types</h4>
+<p style="margin-left: 80px;">This section describes how to use the RODM data types. Different data types can
+be used in different contexts, such as the types of data in fields, subfields, fields of
+the user API or method API, or parameters passed to methods.</p>
+<p style="margin-left: 80px;">Several of the RODM data types are compound data types; they correspond to
+structures in programming languages. PL/I macro declarations and C typedef
+statements are provided for these compound data types. Ensure that there is no
+compiler-generated padding when you map these declarations to storage. You can
+do this in PL/I by adding the UNALIGNED attribute to each declaration, and, in
+C, by using the _Packed qualifier.</p>
+<h4 style="margin-left: 60px;">Null Values of Data Type</h4>
+<p style="margin-left: 80px;">The RODM program specifies a null value for each data type. Typically, you use
+null values for:</p>
+<ul style="margin-left: 60px;">
+<li>v Locator types
+Locator types are data that locates or points to other data. A null value means
+that the data is pointing to nothing.</li>
+    <li>v Locator types
+Locator types are data that locates or points to other data. A null value means
+that the data is pointing to nothing.</li>
+</ul>
+<p style="margin-left: 80px;">The RODM program sets the value of a field or a subfield to the null value for the
+type of field or subfield whenever it first creates it on a class. When a class or
+object inherits a field from its parent class, the value of the field is set to the value
+on the parent class.</p>
+<p style="margin-left: 80px;">See “Abstract Data Type Reference” on page 219 for a specification of the null
+value for each data type.</p>
+<h4 style="margin-left: 60px;">Data Type Identifiers</h4>
+<p style="margin-left: 80px;">When user applications pass data to the RODM program, the RODM program
+usually requires that they also pass the data type of the data along with the data.
+When the RODM program passes data to an application, the RODM program
+usually includes the data type of the data along with the data. To efficiently
+identify data types, there is a decimal data type identifier for each RODM data
+type.</p>
+<p style="margin-left: 80px;">To find the data type identifier for a particular data type, see “Abstract Data Type
+Reference” on page 219.</p>
+<h4 style="margin-left: 60px;">Types of Data in Fields</h4>
+<p style="margin-left: 80px;">Your application programs and methods must assign a data type to each field in a
+class when they issue an API call to create a field. After the API has created the
+field, you cannot change the data type during the life of the field.</p>
+<p style="margin-left: 80px;">List abstract data types are specified for fields that are to contain lists of
+information instead of a single value. The list data type is available to form lists of
+type IndexList, ObjectLink, ObjectID, and ClassID. This field type enables the
+specification of multiple-to-single relationships and multiple-to-multiple
+relationships of classes and objects.</p>
+<p class="page">218</p>
+<p style="margin-left: 80px;">Some data types that can be specified for fields are restricted, depending on the
+nature of the field. The RODM program limits the possible relationships of objects
+and classes in order to assure that incorrect identifiers are not left in RODM after
+an object or a class is deleted. For example, the following conceptually feasible
+relationships are prohibited by RODM:</p>
+<ul style="margin-left: 60px;">
+    <li>Relationships between an object and classes other than the parent child
+relationships in the primary hierarchy. Class relationships must be inheritance
+relationships.</li>
+    <li>Relationships between two objects other than those that are represented by
+ObjectLinks, using the EKG_LinkNoTrigger and EKG_LinkTrigger functions.</li>
+</ul>
+<h4 style="margin-left: 60px;">Abstract Data Type Reference</h4>
+<p style="margin-left: 80px;">This section describes the abstract data types defined by the RODM program.
+Include the macro EKG1IADT for PL/I or EKG3CADT for C in your user
+applications and methods. Including this macro enables you to declare the
+variables in your programs to be the data types needed to use RODM functions.</p>
+<p style="margin-left: 80px;">For example, if you need to specify the name of a method in a RODM function
+block, the parameter you pass must be declared as the MethodName abstract data
+type. To declare a variable named ThisMethodName in PL/I, use the statements:</p>
+<p style="margin-left: 80px; font-family:monospace">%include EKGLIB(ekg1iadt); &nbsp &nbsp &nbsp &nbsp &nbsp /* Abstract data declaration */</p>
+<p style="margin-left: 80px; font-family:monospace">DCL &nbsp &nbsp &nbsp &nbsp ThisMethodName; &nbsp &nbsp &nbsp &nbsp /* 8-byte char</p>
+<p style="margin-left: 80px;">To declare the same variable in C, use the statements:</p>
+<p style="margin-left: 80px; font-family:monospace">#include "ekg3cadt.h" &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  /* Abstract data declaration * </p>
+<p style="margin-left: 80px; font-family:monospace">MethodName ThisMethodName; &nbsp &nbsp &nbsp &nbsp/* 8-byte char</p>
+<p style="margin-left: 80px;">Examples of declaring variables of each type are provided in the file EKG5VDCL
+for PL/I and in the file EKG6VDCL for C.</p>
+<p style="margin-left: 80px;">In the data type definitions that follow, some of the data types are specified as
+being reserved. You cannot specify these data types when you create a field
+definition; these data types are reserved for fields created by the RODM program.</p>
+<h4 style="margin-left: 80px;">Anonymous(N) (Reserved)<br>
+Data Type Identifier</h4>
+<p style="margin-left: 80px;">29</p>
+<h4 style="margin-left: 80px;">Description</h4>
+<p style="margin-left: 80px;">A variable length sequence of data bytes in which only the creator of the data
+knows the value of the data contents. The maximum length of the string is 254
+bytes. The actual length is implicit and based on where a variable of this type has
+been defined for use. The format of the variable contents is unknown at the user
+API level. Only the application program or method that is using RODM and that
+set the value understands this type. This abstract data type cannot be used in a
+SelfDefining data string.</p>
+<h4 style="margin-left: 80px;">Null Value</h4>
+<p style="margin-left: 80px;">Unknown</p>
+<p style="margin-left: 80px;">PL/I Declaration</p>
+<p style="margin-left: 80px;font-family: monospace">% Anonymous = ’CHAR’;</p>
+<p class="page">219</p>
+<h4 style="margin-left: 80px;">C Declaration</h4>
+<p style="margin-left: 80px;">typedef char Anonymous;</p>
+<h4 style="margin-left: 80px;">AnonymousVar<br>
+Data Type Identifier</h4>
+<p style="margin-left: 80px;">30</p>
+<h4 style="margin-left: 80px;">Description</h4>
+<p style="margin-left: 80px;">A variable length string of data that consists of up through 32767 bytes.
+Constructed as a 2-byte length field followed by the number of data bytes specified
+by the length field. This data string can be binary data bytes of any value.</p>
+<p style="margin-left: 80px;">The format of the variable contents is unknown at the user API level. Only the
+application program or method that set the value can understand the format.</p>
+<h4 style="margin-left: 80px;">Null Value</h4>
+<p style="margin-left: 80px;">Length field is zero.</p>
+<h4 style="margin-left: 80px;">PL/I Declaration</h4>
+<p style="margin-left: 80px; font-family: monospace">% AnonymousVar = ’CHAR(32767) VARYING’;</p>
+<h4 style="margin-left: 80px">C Declaration</h4>
+<p style="margin-left: 80px;font-family: monospace">typedef &nbsp _Packed struct {</p>
+<p style="margin-left: 80px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp Smallint Length;</p>
+<p style="margin-left: 80px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp Anonymous Text[1];</p>
+<p style="margin-left: 80px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp } AnonymousVar;</p>
+<p class="page">220</p>
+<h4 style="margin-left: 80px;">BERVar<br>
+Data Type Identifier</h4>
+<p style="margin-left: 80px;">31</p>  
+<h4 style="margin-left: 80px;">Description</h4>
+<p style="margin-left: 80px;">The BERVar data type specifies BER data to the RODM load function. RODM
+verifies part of the BER data format but does not interpret any of it. The following
+description identifies the information verified by RODM</p>
+<p style="margin-left: 80px;">The maximum length of the BER data type (including the identifier, length and
+contents bytes) must not exceed 32767. Figure 40 shows the format of BER data.</p> 
+<img style="margin-left: 80px;" src="Screenshot (424).png">
+<p style="margin-left: 80px;"><i>Figure 40. Format of BER Data</i></p>
+<p style="margin-left: 80px;">RODM verifies the following BER data:</p>
+<p ><ul style="margin-left: 40px;"><li><b>Identifier bytes.</b>
+    Identifier bytes can take two forms, short or long. The form is
+    determined by the tag number (bits 5 to 1) in the first byte.</li></ul>
+<p style="margin-left: 80px;">– If the tag number is less than or equal to 30 ('11110'b), the identifier byte is in
+the short form and only a single identifier byte is needed.</p>
+<img  style="margin-left: 80px;" src="Screenshot (426).png">
+<p style="margin-left: 80px;"><i>Figure 41. Identifier Byte in Short Form</i></p>
+<p style="margin-left: 80px;">– If the tag number in the first byte is equal to 31 ('11111'b), the identifier byte
+is long. For the long form, more than one identifier byte exists. In each byte
+following the leading byte, bit 8 is set to 1 until the last identifier byte. In the
+    last identifier byte bit 8 is set to 0 (zero).</p>
+<p style="margin-left: 80px;">Figure 42 on page 222 shows the long form with three identifier bytes.</p>
+<p class="page">221</p>
+<img  style="margin-left: 80px;" src="Screenshot (428).png">
+<p style="margin-left: 80px;">Figure 42. Identifier Byte in Long Form</p>
+<ul style="margin-left: 60px;list-style-type: disc"><li><b>Length bytes. </b>The length byte specifies the length of the contents bytes and can
+        take 2 forms, short or long.</li></ul>
+<p style="margin-left: 80px;">– If bit 8 equals 0, the length byte is short. In this form, bits 7 to 1 represent the
+length of the contents bytes as an unsigned binary integer. The contents bytes
+can only be less than or equal to 127 bytes with the short form.
+Figure 43 shows the short form of a length byte with the value of 86 bytes.</p>
+<img style="margin-left: 60px;" src="Screenshot (429).png">
+<p style="margin-left: 60px;"><i>Figure 43. Length Byte in Short Form</i></p>
+<p style="margin-left: 80px;">– If bit 8 equals 1, the length byte is long. For this form, bits 7 to 1 represent
+the length of the contents bytes as an unsigned binary integer. Each
+subsequent byte is an unsigned binary integer, and when added together, represents the length of the contents bytes. If the contents bytes are greater
+    than 127 bytes, you must use the long form.</p>
+<p style="margin-left: 80px;">Figure 44 on page 223 shows the long form of a length byte with the value of
+357 bytes. Two length bytes are needed to represent 357.</p>
+<p class="page">222</p>
+<img style="margin-left: 80px;" src="Screenshot (431).png">
+<p style="margin-left: 60px;"><i>Figure 44. Length Byte in Long Form</i></p>
+<h5 style="margin-left: 60px;">Null Value</h5>
+<p style="margin-left: 60px;">Length field is zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% BERVar = ’CHAR(32767) VARYING’;</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp &nbsp _Packed struct{</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp Smallint Length</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Anonymous </p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } BERVa</p>
+<h4 style="margin-left: 60px;">CharVar<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">4</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">Variable-length character string of up through 32767 bytes. The structure of this
+data type is a 2-byte length field followed by the characters in the string. CharVar
+data can be optionally terminated with a null byte with value X'00' by the user for
+C string support. When RODM formats character strings, it always adds the null
+terminator. For example, a CharVar field specified with the null byte that contains
+the string “RODM” has the value X'0004D9D6C4D400'. Note that the null
+terminator byte is not included in the length field of the CharVar data.</p>
+<p style="margin-left: 60px;">For information about specifying a CharVar string in a SelfDefining data string, see
+“SelfDefining” on page 233.</p>
+<p style="margin-left: 60px;">For DBCS (double-byte character set) support, the special control character
+shift-out (X'0E') can begin a DBCS string, and the control character shift-in (X'0F')
+can end a DBCS string. When embedded between the shift-out and shift-in control
+characters, each double-byte character is counted as two bytes. In addition, the
+shift-out and shift-in characters are included in the length of the DBCS string. The
+valid double-byte characters are the same as those for the GraphicVar data type;
+see “GraphicVar” on page 227.</p>
+<p class="pge">223</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">Length field is zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% CharVar = ’CHAR(32767) VARYING’;</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Length;</p>
+<p style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp char Text[1];</p>
+<p style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp} CharVar;</p>
+<h4 style="margin-left: 60px;">CharVarAddr (Reserved)<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">7</p>          
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">Pointer to any variable-length character string. The pointer does not imply any
+maximum length requirements.</p>
+<h5 style="margin-left: 60px;">Null Value</h5>
+<p style="margin-left: 60px;">NULL pointer.</p>
+<h5 style="margin-left: 60px;">PL/I Declaration</h5>
+<p style="margin-left: 60px;font-family: monospace">% CharVarAddr = ’POINTER’;</p>
+<h5 style="margin-left: 60px;">C Declaration</h5>       
+<p style="margin-left: 60px;font-family: monospace">typedef Pointer CharVarAddr;</p>  
+<h4 style="margin-left: 60px;">ClassID (Reserved)<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">1</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">A full-word integer that identifies a class to RODM. ClassID is the data type only
+of the MyID field on a class and the MyPrimaryParentID field on classes and
+objects.</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">All bits are zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% ClassID = ’FIXED BINARY(31)’;</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef long ClassID;</p>
+<p class="page">224</p>
+<h4 style="margin-left: 60px;">ClassIDList (Reserved)<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">2</p>
+<h4 style="margin-left: 60px;">Description</h4>
+ <p style="margin-left: 60px;">A list of Class IDs. This is the data type only of the MyClassChildren field of a
+class. The Length field of ClassIDList is the number of elements in the list, not the
+length in bytes.</p>   
+ <h4 style="margin-left: 60px;">Null Value</h4>   
+ <p style="margin-left: 60px;">Length field is zero.</p> 
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">DCL
+<p style="margin-left: 60px;font-family: monospace">1 ClassIDList EKG_BOUNDARY,</p>
+<p style="margin-left: 60px;font-family: monospace">3 Len Integer,</p>
+<p style="margin-left: 60px;font-family: monospace">3 List(1) ClassID;</p>
+<p><b>Note:</b>EKG_BOUNDARY is a character substitution for the UNALIGNED and
+BASED PL/I attributes and is used with all abstract data type Pl/I definitions
+using DCL statements.</p>
+<h4>C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">Integer Length;</p>
+<p style="margin-left: 60px;font-family: monospace">ClassID List[1];</p>
+<p style="margin-left: 60px;font-family: monospace">} ClassIDList;</p>
+<h4 style="margin-left: 60px;">ClassLinkList (Reserved)<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">6</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">A 4-byte length field followed by a list in which each entry is a concatenated Class
+ID and Field ID. The Length field of ClassLinkList is the number of elements in the
+list, not the length in bytes. Each entry specifies a link to some field of a class,
+required for a system-class definition of the MyClassChildren field of a class.</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">Length field is zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">DCL</p>
+<p style="margin-left: 60px;font-family: monospace">1 ClassLinkList EKG_BOUNDARY</p>
+<p style="margin-left: 60px;font-family: monospace">3 Len Integer,</p>
+<p style="margin-left: 60px;font-family: monospace">3 List(1),</p>
+<p style="margin-left: 60px;font-family: monospace">5 ClassIdentifier ClassID,</p>
+<p style="margin-left: 60px;font-family: monospace">5 FieldIdentifier FieldID;</p>
+<p class="page">225</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef _Packed struct {
+
+
+
+<p style="margin-left: 60px;font-family: monospace">Integer Length;</p>
+<p style="margin-left: 60px;font-family: monospace">ClassLink List[1];</p>
+<p style="margin-left: 60px;font-family: monospace">} ClassLinkList;</p></p>
+<h4 style="margin-left: 60px;">ECBAddress (Reserved)<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">8</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">The 4-byte address of an ECB that the RODM program uses to post an application
+when an event occurs. The EKG_NotificationQueue class requires this data type.</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">Null pointer</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% ECBAddress = ’POINTER’;</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef void *ECBAddress;</p>
+<h4 style="margin-left: 60px;">FieldID
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">26</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">A full-word integer for field identifiers. This data type is used for fields that
+contain the identifier of other fields.</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">All bits are zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% FieldID = ’FIXED BINARY(31)’;</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef long FieldID;</p>
+<h4 style="margin-left: 60px";>Floating<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">9</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">A floating point number for general use. The number is represented in eight bytes.</p>
+<p class="page">226</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">All bits zero</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% Floating = ’FLOAT BINARY(53)’</p>
+<h4 style="margin-left: 60px;">C Declaration
+</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef double Floating;</p>
+<h4 style="margin-left: 60px;">GraphicVar<br>
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">5</p>
+<h4 style="margin-left: 60px;">Description
+</h4>
+<p style="margin-left: 60px;">A sequence of data constructed as a 2-byte length field followed by a set of
+double-byte characters. The value of the length field must be no more than 16,383
+double-byte units. One 16-bit double-byte character has a length of one
+double-byte unit. Valid characters must have both the first and second byte of data
+defined in the range X'41' through X'FE'. The characters X'4040' are also valid.
+GraphicVar data is terminated by two null bytes with value X'0000'. The null
+terminator bytes are not included in the length field of the GraphicVar data.</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">Length field is zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">DCL</p>
+<p style="margin-left: 60px;font-family: monospace">1 GraphicVar EKG_BOUNDARY,</p>
+<p style="margin-left: 60px;font-family: monospace">3 Len Smallint,</p>
+<p style="margin-left: 60px;font-family: monospace">3 Text CHAR(1);</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Length;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Text[1];</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp} GraphicVar</p>
+<h4 style="margin-left: 60px;">Integer
+Data Type Identifier</h4>
+<p style="margin-left: 60px;">10</p>
+<h4 style="margin-left: 60px;">Description</h4>
+<p style="margin-left: 60px;">Full-word integer intended for general use.</p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">All bits are zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4> 
+<p style="margin-left: 60px;font-family: monospace">% Integer = ’FIXED BINARY(31)’;</p>
+<p class="page">227</p>
+<h4 style="margin-left: 60px;">C Declaratio</h4> 
+<p style="margin-left: 60px;font-family: monospace">typedef long Integer</p>
+<h4 style="margin-left: 60px;">IndexList<br>
+Data Type Identifier</h4> 
+<p style="margin-left: 60px;">32</p>
+<h4 style="margin-left: 60px;">Description</h4> 
+<p style="margin-left: 60px;">A variable-length string of data that is composed of multiple values up through a
+maximum of 32767 bytes. The data is a list of AnonymousVar data values, and
+each individual data value in the list has the following characteristics</p>
+<ul style="margin-left: 40px;">
+<li> Must be unique within the field.  
+</li>
+<li>Has a maximum length of 254 bytes</li>
+<li>Is composed of a 2-byte length field followed by the number of data bytes
+specified by the length field. The AnonymousVar data type identifier is not part
+of the value.</li></ul>
+<p style="margin-left: 60px;">Figure 45 shows an example Indexlist string that contains three AnonymousVar
+values:</p>
+<ul style="margin-left: 40px;">
+<li>00 08 C9 D5 C4 C5 E7 F1 40 40</li>
+<li>00 06 C9 95 84 85 E7 F1</li>
+<li>v 00 08 93 95 C4 C5 A7 C5 C5 C5</li></ul>
+<img style="margin-left: 60px;" src="Screenshot (433).png">
+<p style="margin-left: 60px;"><i>Figure 45. Example IndexList Field</i></p>
+<h4 style="margin-left: 60px;">Null Value</h4>
+<p style="margin-left: 60px;">Length field is zero.</p>
+<h4 style="margin-left: 60px;">PL/I Declaration</h4>
+<p style="margin-left: 60px;">% IndexList = ’CHAR(32767) VARYING’;</p>
+<h4 style="margin-left: 60px;">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Length;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp char Text[1];</p>
+<p style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp} IndexList;</p>
+<p class="page">228</p>
+<h4  style="margin-left: 60px;">MethodName (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">11</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">An 8-character data type for the name of a method.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">NullMeth.</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;">% MethodName = ’CHAR(8)’;</p>
+<h4  style="margin-left: 60px;">C Declaration</h4>
+<p  style="margin-left: 60px;">typedef _Packed struct {
+char Data_char[8];
+} MethodName;</p>
+<h4  style="margin-left: 60px;">method_parameter_list (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">12</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">Long-lived parameters retained by RODM and passed to a method. The maximum
+length is 254 bytes, excluding the 2-byte header of X'000C'.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Length field is zero.</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;">% method_parameter_list = ’SelfDefining’;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;">typedef SelfDefining method_parameter_list</p>
+<h4  style="margin-left: 60px;">MethodSpec<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">13</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">A method object ID plus a method parameter list that specify an object-specific
+method and the parameters that it has when you trigger it.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Method object ID for the reserved method named NullMeth concatenated with a
+null method parameter list.</p>
+<p class="page">229</p>
+<h4  style="margin-left: 60px;">PL/I Declaration</h4>
+<p  style="margin-left: 60px;">DCL
+1 MethodSpec EKG_BOUNDARY,
+3 ObjectIdentifier ObjectID,
+3 MthdParmList SelfDefining;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ObjectID ObjectIdentifier;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp SelfDefining MthdParmList;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } MethodSpec;</p>
+<h4  style="margin-left: 60px;">ObjectID (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">14</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">Double word for an object ID, required on the MyID field of an object.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">All bits are zero</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;">% ObjectID = ’BIT(64)’;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Collision_number;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Class_identifier;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Integer Object_identifier;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } ObjectID;</p>
+<h4  style="margin-left: 60px;">ObjectIDList (Reserved)
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">15</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">A list in which the entries are Object IDs. The data type of the MyObjectChildren
+field on a class. A sequence of data constructed as a 4-byte length field followed by
+a concatenation of the ObjectIDs that are the entries in the list. The Length field of
+ObjectIDList is the number of elements in the list, not the length in bytes. All
+object IDs in the list are concatenated and contiguous.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Length field is zero</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">DCL</p>
+<p style="margin-left: 60px;font-family: monospace">1 ObjectIDList EKG_BOUNDARY,</p>
+<p style="margin-left: 60px;font-family: monospace">3 Len Integer,</p>
+<p style="margin-left: 60px;font-family: monospace">3 List(1) ObjectID;</p>
+<p class="page">230</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Integer Length;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ObjectID List[1];</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } ObjectIDList;</p>
+<h4  style="margin-left: 60px;">ObjectLink<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">16</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">Double-word object ID plus field ID for specifying a link to a field in another
+object.</p>
+<h4  style="margin-left: 60px;">Null Value</h4>
+<p  style="margin-left: 60px;">A NULL Object ID concatenated with a NULL field ID.</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">DCL</p>
+<p style="margin-left: 60px;font-family: monospace">1 ObjectLink EKG_BOUNDARY,</p>
+<p style="margin-left: 60px;font-family: monospace">3 ObjectIdentifier ObjectID,</p>
+<p style="margin-left: 60px;font-family: monospace">3 FieldIdentifier FieldID;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp &nbsp &nbsp _Packed struct {</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ObjectID ObjectIdentifier;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp FieldID FieldIdentifier;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } ObjectLink;</p>
+<h4  style="margin-left: 60px;">ObjectLinkList
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">17</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">A list of Object Links. A sequence of data constructed as a 4-byte length field
+followed by the concatenation of the Object Links that are the entries in the list.
+The Length field of ObjectLinkList is the number of elements in the list, not the
+length in bytes. All object IDs in the list are concatenated and contiguous.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Length field is zero</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">DCL</p>
+<p  style="margin-left: 60px;font-family: monospace">1 ObjectLinkList EKG_BOUNDARY,</p>
+<p  style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp 3 Len &nbsp &nbsp &nbsp &nbsp Integer,</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp 3 List(1),</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp 5 ObjectIdentifier&nbsp &nbsp  ObjectID,</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp 5 FieldIdentifier &nbsp &nbsp FieldID;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp_Packed struct {
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp Integer Length;</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp ObjectLink List[1];</p>
+<p style="margin-left: 60px;font-family: monospace">}&nbsp &nbsp &nbsp &nbsp   ObjectLinkList;</p>
+<h4  style="margin-left: 60px;">ObjectName (Reserved)<br>
+Data Type Identifier</h4>
+<h4  style="margin-left: 60px;">18</h4>
+<p  style="margin-left: 60px;">Description</p>
+<p style="margin-left: 60px;">The data type of the MyName field of an object. The name consists of no more
+than 254 characters, terminated by one byte of X'00'. The structure of ObjectName
+data is a 2-byte length field followed by the characters in the string. The null
+terminating character is not included in the length field. See “Object Names” on
+page 205 for information about valid object names.</p>
+
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Length field is zero; in PL/I, set with string = '</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">% ObjectName = ’CHAR(254) VARYING’;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Name_length;</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp char Name_content[255];</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } ObjectName;</p>
+<h4  style="margin-left: 60px;">RecipientSpec (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">20</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">Information that notification methods require to notify an application program. A
+sequence of data including an 8-byte ApplicationID, an 8-byte notification-queue
+SubscribeID, and an 8-byte user word of data type Anonymous.</p>
+<h4 style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Concatenation of a null Application ID, a null SubscribeID, and a null
+Anonymous(8) string.</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">DCL</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp 1 RecipientSpec EKG_BOUNDARY,</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp 3 User_appl_ID ApplicationID,</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp 3 Notification_queue SubscribeID,</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp 3 User_word Anonymous(8);</p>
+<p class="page">232</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ApplicationID User_appl_ID;</p>
+<p  style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp SubscribeID Notification_queue;</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp  Anonymous User_Word[8];</p>
+<p  style="margin-left: 60px;font-family: monospace">} RecipientSpec;</p>
+<h4  style="margin-left: 60px;">SelfDefining<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">19</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">A string of no more than 32767 bytes that is a concatenation of tagged data items;
+each tagged data item represents a RODM abstract data-type ID followed by its
+corresponding data. All reserved abstract data types can be used in SelfDefining
+data strings except the Anonymous(N) data type.</p>
+<p style="margin-left: 60px;"><i>Figure 46 shows the format of SelfDefining data.</i></p>
+<h4  style="margin-left: 10px;">Self_Defining</h4>
+<img style="margin-left: 10px;" src="Screenshot (436).png">
+<p  style="margin-left: 10px;"><i>Figure 46. SelfDefining Data Type Syntax</i></p>
+
+<p  style="margin-left: 60px;">The following variables are used in the SelfDefining syntax:<br>
+    length</p>
+<p style="margin-left: 80px;">A 2-byte integer that specifies the total length of the SelfDefining data string
+excluding the 2-byte length field itself.</p>
+
+<p  style="margin-left: 60px;"><i>identifier</i>
+<p  style="margin-left: 80px;">A 2-byte unsigned integer that specifies the RODM data type of the data that
+immediately follows the identifier in the SelfDefining data string. Data type
+identifiers are specified in the RODM data type definitions in “Abstract Data
+Type Reference” on page 219.</p>
+<p  style="margin-left: 60px"><i>value</i></p>
+<p  style="margin-left: 80px;">The value of the data that is specified by identifier. For values that are of data
+type ObjectName and ShortName, the null terminator is not included in the
+SelfDefining data string.</p>
+<p  style="margin-left: 60px;">When specifying a CharVar inside a SelfDefining data string, you must include the
+1-byte null terminator in the length field of the SelfDefining data string, but do not
+include it in the length field of the CharVar specification within the SelfDefining
+data string.</p>
+<p  style="margin-left: 60px;">Figure 47 on page 234 shows an example SelfDefining string that contains a
+Smallint with a 2-byte (short integer) hexadecimal representation of the value 2010, a CharVar with the value RODM, and an 8-byte application ID value of NETV, which
+is padded on the right with four blanks.</p>
+<p class="page">233</p>
+<img style="margin-left: 10px;" src="Screenshot (440).png">
+<p  style="margin-left: 10px;"><i>Figure 47. Example SelfDefining Field</i></p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Length field is zero.</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">% SelfDefining = ’CHAR(32767) VARYING’;</p>
+
+<h4  style="margin-left: 60px;">C Declaration</h4>
+<p  style="margin-left: 60px;font-family: monospace"> typedef&nbsp &nbsp &nbsp _Packed struct {</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Smallint Data_length;</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Anonymous Data_content;</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } SelfDefining;</p>
+
+<h4  style="margin-left: 60px;">ShortName (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">23</p>
+
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">Data type of the MyName field on a class and MyPrimaryParentName field on any
+object or class. The name consists of no more than 64 characters, terminated by one
+byte of X'00'. The structure of ShortName data is a 2-byte length field followed by
+the characters in the string. For information about constructing field names, see
+“RODM Fields” on page 206.</p>
+<h4  style="margin-left: 60px;">Null Value
+ </h4>
+<p  style="margin-left: 60px;">Length field is zero; in PL/I, set with string =</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;">% ShortName = ’CHAR(64) VARYING’;</p>
+<h4  style="margin-left: 60px;">C Declaration
+    <p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+    <p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbspshort Name_length;</p>
+    <p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbspchar Name_content[65];</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp} ShortName;</p>
+<h4  style="margin-left: 60px;">Smallint<br>Data Type Identifier
+</h4>
+<p  style="margin-left: 60px;">21</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">A 2-byte (half-word) signed integer for general use</p>
+<p class="page">234</p>
+    <h4  style="margin-left: 60px;">Null Value</h4>
+    <p style="margin-left: 60px">All bits are zero.</p>
+    <h4 style="margin-left: 60px";>PL/I Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">% Smallint = ’FIXED BINARY(15)’;
+    <h4 style="margin-left: 60px">C Declaration</h4>
+<p style="margin-left: 60px;font-family: monospace">typedef short Smallint;</p>    
+
+<h4  style="margin-left: 60px;"> SubscribeID (Reserved)<br>
+Data Type Identifie</h4>
+    <p style="margin-left: 60px;">22</p>
+<h4  style="margin-left: 60px;">Description</h4>
+    
+<p  style="margin-left: 60px;">The 8-character notification queue name that is used to associate a field with a
+notification queue when the field is subscribed to. The association is established
+during the subscription process. The characters are positioned left-justified within
+the eight bytes and padded with blanks (for code page 00500, X'40') on the right.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">All bytes are blank (X'40' for code page 00500).</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;">% SubscribeID = ’CHAR(8)’;</p>
+<h4  style="margin-left: 60px;">C Declaration
+    <p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+    <p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp char Data_char[8];</p>
+<p style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } SubscribeID;</p>
+<h4  style="margin-left: 60px;">SubscriptSpec (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">24</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">A method specification plus a recipient specification used to record a notification
+request in the RODM program. The SubscriptSpec includes information about the
+method, the method parameters, and the intended recipient of the notification.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">Concatenation of a null MethodSpec and a null RecipientSpec</p>
+<p  style="margin-left: 60px;"><i>Note:</i>The MethodSpec data type, a part of the SubscriptSpec data type, consists of
+an ObjectID and a method parameter list. The method parameter list is
+self-defining and is, in PL/I syntax, CHAR(254) VARYING.</p>
+ <p class="page">235</p>   
+<p  style="margin-left: 60px;"></p>
+<h4  style="margin-left: 60px;">SubscriptSpecList (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">25</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">The data type of a notify subfield. This data type contains a list of SubscriptSpec
+elements, where each SubscriptSpec element represents a notification subscription.
+The length field of SubscriptSpecList is the number of elements in the list, not the
+length in bytes. All SubscriptSpec elements in the list are concatenated and
+contiguous.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">All bits are zero.</p>
+    <h4  style="margin-left: 60px;">PL/I Declaration</h4>
+    <p style="margin-left: 60px;font-family: monospace">DCL</p>
+    <p style="margin-left: 60px;font-family: monospace">&nbsp 1 SubscriptSpecList EKG_BOUNDARY,</p>
+    <p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp 3 Len Integer,</p>
+<p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp 3 Text CHAR(1);</p>
+    <h4  style="margin-left: 60px;">C Declaration</h4>
+    <p style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+    <p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  Integer Length;</p>
+    <p style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp char Text[1];</p>
+<p style="margin-left: 60px;font-family: monospace"&nbsp &nbsp &nbsp >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp } SubscriptSpecList;</p>
+<h4  style="margin-left: 60px;">TimeStamp<br>
+Data Type Identifie</h4>
+<p  style="margin-left: 60px;">27</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">The time value represented in Lilian milliseconds (eight bytes). Lilian milliseconds
+is the number of milliseconds since midnight 14 October 1582, which marks the
+beginning of the use of the Gregorian calendar. The time range provided is from 14
+October 1582 through 31 December 9999. This is similar to the time format that is
+supported by the Common Execution Library for IBM compilers. To use this time
+with the Common Execution Library routines, divide the value by 1000.</p>
+<p  style="margin-left: 60px;">Generation of this time format assumes that the Time-of-day (TOD) clock is set to
+Greenwich Mean Time (GMT) and based on the standard epoch.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">All bits are zero</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">% TimeStamp = ’FLOAT BINARY(53)’;</p>
+<h4  style="margin-left: 60px;">C Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">typedef double TimeStamp;</p>
+<p class="page">236</p>
+<h4  style="margin-left: 60px;">TransID (Reserved)<br>
+Data Type Identifier</h4>
+<p  style="margin-left: 60px;">28</p>
+<h4  style="margin-left: 60px;">Description</h4>
+<p  style="margin-left: 60px;">The transaction ID is a unique identifier of a RODM transaction.</p>
+<h4  style="margin-left: 60px;">Null Value
+</h4>
+<p  style="margin-left: 60px;">All bits are zero.</p>
+<h4  style="margin-left: 60px;">PL/I Declaration
+</h4>
+<p  style="margin-left: 60px;font-family: monospace">% TransID = ’CHAR(8)’;</p>
+<h4  style="margin-left: 60px;">C Declaration</h4>
+    <p  style="margin-left: 60px;font-family: monospace">typedef &nbsp &nbsp _Packed struct {</p>
+    <p  style="margin-left: 60px;font-family: monospace"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp char Content[8];</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp} TransID</p>
+<p class="page">237</p>
+<p class="page">238</p>
+    <hr style="border: 2px solid black">
+<h3  style="margin-left: 10px;">Chapter 10. Using the RODM Load Function</h3>
+<p  style="margin-left: 60px;">This chapter describes how to create your own data model and load object
+definitions using the RODM load function. You create a data model as part of
+creating a new RODM application that does not use a data model that is supplied
+by IBM. This can be done by modifying an existing model or creating an entirely
+new data model using RODM load function statements.</p>
+<p  style="margin-left: 60px;">The RODM load function enables you to create a data model and define its initial
+data values. It enables you to create, modify, and delete RODM classes and objects
+while the RODM program is running. You create sequential data sets that contain
+the load function statements. The load function reads the input data sets and loads
+the information into the RODM data cache.</p>
+
+<p  style="margin-left: 60px;">This section covers these topics:</p>
+    <ul style="margin-left: 40px;"><li>Considerations when designing a data model</li>
+        <li>Introduction to the RODM load function</li>
+        <li>Using load function statements</li>
+        <li>Process for loading the data cache</li>
+        <li>v Load function reference.</li>
+<p  style="margin-left: 60px;">You can use the load function to update an existing data model while RODM is
+running. You can run the load function using an initialization method so that it
+runs before RODM accepts any other transactions.</p>
+ <hr>       
+<h4  style="margin-left: 10px;">Considerations When Designing a Data Model</h4>
+
+<p  style="margin-left: 60px;">RODM classes can have objects as children, other classes as children, or both
+objects and other classes as children. You can add a new class or a new object to a
+parent class, as shown in Figure 48</p>
+        <img src="Screenshot (442).png">
+<p  style="margin-left: 60px;"><i>Figure 48. Adding Objects and Classes</i></p>
+        <p class="page">239</p>
+<h4  style="margin-left: 10px;">Introduction to the RODM Load Function</h4>
+<p  style="margin-left: 80px;">The RODM load function is a part of RODM that shares libraries with RODM, but
+operates like an application program through the RODM user application program
+interface (API). It performs operations on the RODM data cache using load
+function statements. You code these statements in sequential files which are used
+as input to the RODM load function.</p>
+<h4  style="margin-left: 60px;">Load Function Statements</h4>
+<p  style="margin-left: 60px;">Two different levels of load function statements are processed by the RODM load
+function:</p>
+        <ul style="margin-left: 60px;list-style-type: disc"><li>High-level load function statements</li>
+        <li> Load function primitive statements</li></ul>
+<p  style="margin-left: 80px;">RODM high-level load function statements are the statements most commonly
+used when defining your data model hierarchy. During RODM load function
+processing each of these statements is parsed into one or more RODM load
+function primitive statements. These primitive statements are then processed for
+syntax and action.</p>
+<p  style="margin-left: 80px;">RODM load function primitive statements are the low-level syntax statements.
+They are either generated by the RODM load function from processing high-level
+statements or used directly as input to the RODM load function for loading and
+managing the RODM data cache. Each primitive statement corresponds closely to a
+user API call, but in some cases can include more than one user API call</p>
+<p  style="margin-left: 80px;">In addition, there are common syntactic elements which are a group of described
+variables used in RODM high-level load function syntax and RODM load function
+primitive syntax.</p>
+<h4  style="margin-left: 60px;">Load Function Operations</h4>
+<p  style="margin-left: 80px;">The RODM load function provides three different operations that enable you to
+load, update, and validate the contents of the RODM data cache. These three
+operations are:</p>
+        <ul style="margin-left: 60px;list-style-type: disc"><li>Parse</li>
+            <li>Load</li>
+<li>Verify</li></ul>
+        
+
+<p  style="margin-left: 80px;">The parse operation processes the load function input files and tests the syntax of
+all of the statements. No changes are made to the data cache, and RODM does not
+need to be running when you use the parse operation. This operation returns error
+messages for any statements in the load function input files that contain syntax
+errors. However, it cannot generate errors for problems such as assigning a value
+to a field that does not exist.</p>
+
+<p  style="margin-left: 80px;">The load operation parses the load function input files and updates the contents of
+the RODM data cache. The load function input files can contain both high-level
+load function statements and load function primitive statements.</p>
+<p  style="margin-left: 80px;">The RODM load function returns error messages for any statements in the load
+function input files that contain syntax errors. The load function also returns error
+messages for any request that does not complete successfully, even if the syntax
+was correct. For example, if you try to assign a value to a field which does not
+exist, the load function returns an error. Because the load function converts each
+high-level load function statement into several load function primitive statements</p>
+        <p class="page">240</p>
+<p  style="margin-left: 80px;">as part of its processing, you might receive error messages which describe
+problems with load function primitives when you code a high-level load function
+statement.</p>
+<p  style="margin-left: 80px;">Before you run the load operation, run the parse operation and correct any syntax
+errors. Then, use the load operation to create or update the contents of the data
+cache. You can update the data cache using the load function any time RODM is
+running.</p>
+<p  style="margin-left: 80px;">The verify operation parses the load function input files and compares the
+statements with the contents of the data cache. No changes are made to the data
+cache, but RODM must be running to use the verify operation. The verify
+operation enables you to determine if specified classes, objects, and fields exist in
+the data cache. You can also determine if a field has a specified value. See
+“Understanding the Verify Operation” on page 258 for a more detailed description
+of the verify operation.</p>
+<h4  style="margin-left: 60px;">Loading the RODM Data Cache</h4>
+<p  style="margin-left: 80px;">After you create the RODM load function input files, you need to run the load
+function to load the RODM data cache. You call the RODM load function as any of
+the following items:</p>
+        <ul style="margin-left: 60px;list-style-type: disc"><li>An initialization method run at RODM start</li>
+            <li>A module call from a program</li>
+<li>A JCL batch job</li></ul>
+<p  style="margin-left: 60px;">You have different types of loads from which to choose:</p>
+<p  style="margin-left: 60px;"><b>Initialization</b></p>
+
+<p  style="margin-left: 60px;">You load the methods, the class structure, and the object definitions at
+RODM start.</p>
+
+        <p  style="margin-left: 60px;"><b>Structure only</b>
+<p  style="margin-left: 80px;">You load only the methods and the class structure definitions—a structure
+load.</p>
+<p  style="margin-left: 60px;"><b>Object only</b>
+<p  style="margin-left: 60px;">You load only the object definitions—an object load.</p>
+<p  style="margin-left: 60px;">The RODM load function loads the RODM data cache with a data model based on
+definitions in the load function input data sets. These data sets are identified to the
+RODM load function by the JCL data definition (DD) statements labeled:</p>
+<h5 style="margin-left: 60px;">EKGIN1</h5>
+<p  style="margin-left: 60px;">Class structure definitions</p>
+<h5  style="margin-left: 60px;">EKGIN2
+</h5>
+<p  style="margin-left: 60px;">Method name table</p>
+<h4  style="margin-left: 60px;">EKGIN3
+</h4>
+<p  style="margin-left: 60px;">Object definition</p>
+<p  style="margin-left: 60px;">For more information about loading the RODM data cache, see “Process for
+Loading the RODM Data Cache” on page 244</p>
+        <p class="page">241</p>
+        <hr>
+        <h3 style="margin-left: 10px;">Using Load Function Statements</h3>
+
+<p  style="margin-left: 60px;">This section describes the RODM high-level load function statements and the
+RODM load function primitive statements, and when to use them. The RODM
+load function uses these statements to issue RODM user API calls that cause RODM to:</p>
+        <ul style="margin-left: 60px;list-style-type: disc"><li>Create classes, objects, fields, and subfields</li>
+            <li>Delete classes, objects, fields, and subfields</li>
+            <li>Set fields to initial values</li>
+            <li>Establish the parent-child relations that define the hierarchy</li>
+            <li>Set the values of fields</li>
+<li>Trigger methods</li></ul>
+<h3  style="margin-left: 40px;">High-Level Load Function Statements</h3>
+<p  style="margin-left: 60px;">This topic describes the RODM high-level load function statements. For
+information about coding these statements, see “Coding RODM High-Level Load
+Function Statements” on page 273.</p>
+<p  style="margin-left: 60px;">The four RODM high-level load function statements are:</p>
+<h5  style="margin-left: 60px;">MANAGED OBJECT CLASS</h5>
+<p  style="margin-left: 60px;">The RODM high-level load function class structure syntax you use to build
+the hierarchy of the data model in the RODM data cache by adding class
+definitions and setting initial values.</p>
+<h5  style="margin-left: 60px;">CREATE
+</h5>
+<p  style="margin-left: 60px;">The RODM high-level load function object syntax you use to create an
+object of a class in the RODM data cache.</p>
+<h5  style="margin-left: 60px;">DELETE
+</h5>
+<p  style="margin-left: 60px;">The RODM high-level load function object syntax you use to delete an
+object from the RODM data cache.</p>
+<h5  style="margin-left: 60px;">SET </h5>
+<p  style="margin-left: 60px;">The RODM high-level load function object syntax you use to set the values
+of fields of objects in the RODM data cache.</p>
+<p  style="margin-left: 60px;">When RODM high-level load function statements are processed, each RODM
+high-level load function statement is first converted to RODM load function
+primitive statements. For example, the following MANAGED OBJECT CLASS
+high-level load function statement defines a child class named SNA_Domain_Class
+with a field named SNANet under the class named Domain_Parent_Class:</p>
+
+<p  style="margin-left: 60px;font-family: monospace">SNA_Domain_Class &nbsp &nbsp &nbsp MANAGED OBJECT CLASS;</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp PARENT IS Domain_Parent_Class;</p>
+<p  style="margin-left: 60px;font-family: monospace">&nbsp &nbsp ATTRLIST</p>
+<p style="margin-left: 60px;font-family: monospace">SNANet &nbsp &nbsp &nbsp &nbsp CHARVAR;</p> 
+<p style="margin-left: 60px;font-family: monospace">END;</p>
+<p  style="margin-left: 60px;">The high-level statement is parsed by the RODM load function and results in the
+following RODM load function primitive statements:</p>
+        <p  style="margin-left: 80px;">OP SNA_Domain_Class HAS_PARENT Domain_Parent_Class;</p>
+<p  style="margin-left: 80px;">OP SNA_Domain_Class HAS_FIELD (CHARVAR) SNANet</p>
+
+<p  style="margin-left: 60px;">Each RODM load function primitive statement is then processed for syntax and
+action. See “Load Function Primitive Statements” on page 243 for more
+information about RODM load function primitive statements.</p>
+<p  style="margin-left: 60px;">If any of the RODM load function primitive statements generated for a RODM
+high-level load function statement encounters an error, any subsequent RODM</p>
+        <p class="page">242</p>
+<p  style="margin-left: 60px;">load function primitive statements for that RODM high-level load function
+statement will be ignored. That means any syntax errors following the detected
+error within the bounds of the RODM high-level load function statement being
+processed will not be detected.</p>
+        <h4  style="margin-left: 60px;">Load Function Primitive Statements</h4>
+<p  style="margin-left: 60px;">The RODM load function primitives are an external interface that is at a lower
+level than the RODM high-level load function statements described in “High-Level
+Load Function Statements” on page 242. For information about how to code
+RODM load function primitive statements, see “Coding RODM Load Function
+Primitive Statements” on page 281.</p>
+<p  style="margin-left: 60px;">RODM load function primitives come directly from user-generated input files or
+are generated by the RODM load function from RODM high-level load function
+statements within the input files. Both RODM load function primitives and RODM
+high-level load function statements can be used in the same RODM load function
+input file, but load function primitives cannot be coded within a high-level
+statement.</p>
+<p  style="margin-left: 60px;">The load function processes primitive statements sequentially, one primitive
+statement at a time. The RODM load function interprets each of them according to
+their processing options and issues the appropriate user API calls to perform
+RODM functions. The primitives correspond very closely to the user API calls, but
+in some cases they can include more than one user API call.</p>
+        <h4  style="margin-left: 60px;">When to Use High-Level or Primitive Load Function
+        Statement</h4>
+    <p  style="margin-left: 60px;">Use RODM high-level load function statements when you are:</p>
+    <ul style="margin-left:80px;list-style-type: disc"><li> Performing the initial loading of a data model</li>
+        <li>Making changes to the structure of the data model</li> <li>Adding a large number of classes or objects into the RODM data cache, wher using RODM load function primitives is cumbersome</li></ul>
+<p  style="margin-left: 80px;">using RODM load function primitives is cumbersome</p>
+<p  style="margin-left: 80px;">Use RODM load function primitives to define class structure changes that involve
+the deletion of classes, the modification of classes, the modification of the
+hierarchy, or when a desired function cannot be performed by a high-level
+statement.</p>
+<p  style="margin-left: 60px;">The following RODM load function primitives perform functions that cannot be
+performed by RODM high-level load function statements for objects or classes:</p>
+<h5  style="margin-left: 60px;">FORCE_HAS_NO_INSTANCE</h5>
+<p  style="margin-left: 80px;">Unconditionally, deletes an object after unlinking any links the object has</p>
+<h5  style="margin-left: 60px;">FORCE_NOT_A_CLASS</h5>
+<p  style="margin-left: 80px;">Unconditionally, deletes a class and any children of the class, regardless of
+links</p>
+<h5  style="margin-left: 60px;">HAS_NO_FIELD</h5>
+<p  style="margin-left: 80px;">Deletes a field within a class</p>
+<h5  style="margin-left: 60px;">HAS_NO_SUBFIELD</h5>
+<p  style="margin-left: 80px;">Deletes a subfield within a field</p>
+<h5  style="margin-left: 60px;">INVOKED_WITH</h5>
+<p  style="margin-left: 80px;">Triggers a named or object-independent method.</p>
+        <p class="page">243</p>
+<h5  style="margin-left: 80px;">NOT_A_CLASS</h5>
+<p  style="margin-left: 60px;">Conditionally deletes a childless class.</p>
+<p  style="margin-left: 60px;">The following RODM load function primitives perform functions that cannot be
+performed on classes by RODM high-level load function statements:</p>
+<p  style="margin-left: 60px;"><i>Note:</i>RODM high-level load function statements can perform these functions on
+objects.</p>
+<h5  style="margin-left: 60px;">HAS_VALUE</h5>
+        <p  style="margin-left: 80px;">Defines a value for a field within a class.</p>
+<p  style="margin-left: 80px;">The RODM high-level load function statement MANAGED OBJECT
+CLASS can define an initial value for the field of a specific class, but it
+cannot be used to change the value.</p>
+<h5  style="margin-left: 60px;">INHERITS</h5>
+<p  style="margin-left: 80px;">Removes the locally defined value for the specified class field and reverts
+the field value to the value that it inherited from its parent.</p>
+<h5  style="margin-left: 60px;">SUBFIELD_HAS_VALUE</h5>
+        <p  style="margin-left: 80px;">Defines a value for a subfield within a class.</p>
+<p  style="margin-left: 80px;">Only the value subfield can be initialized for the class by the RODM
+high-level load function statement MANAGED OBJECT CLASS.</p>
+<h5  style="margin-left: 60px;">SUBFIELD_INHERITS</h5>
+<p  style="margin-left: 80px;">Removes the locally-defined value for the specified class subfield and
+reverts the subfield value to the value that it inherited from its parent.</p>
+
+<p  style="margin-left: 60px;">You can code the primitives for either a structure load or an object load, but you
+must define all of the structure first and then define the objects because you must
+ensure that parent classes are created before their class children or their object
+children are created.</p>
+<p  style="margin-left: 60px;">When it is easier to perform an operation with a RODM load function primitive
+than with a RODM high-level load function statement, use a RODM load function
+primitive. For example, the field value of the field named SNANet of the object
+named CNM01 under the class named SNA_Domain_Class can be set to a new
+value with the SET high-level statement, but you need several lines of SET
+statement syntax:</p>
+<p  style="margin-left: 60px;">SET INVOKER ::= 0001</p>
+<p  style="margin-left: 60px;">&nbsp &nbsp MODE ::= non-confirmed;</p>
+        <p  style="margin-left: 60px;">&nbsp &nbsp OBJCLASS ::= SNA_Domain_Class;</p>
+        <p  style="margin-left: 60px;">&nbsp &nbsp OBJINST ::= MyName = (CHARVAR) ’CNM01’;</p>
+<p  style="margin-left: 60px;">&nbsp &nbsp MODLIST SNANet ::= (CHARVAR) </p>
+<p  style="margin-left: 60px;">END;
+<p  style="margin-left: 60px;">Whereas, you can use the HAS_VALUE primitive to set the field value of the object
+with only one line of syntax:</p>
+<p  style="margin-left: 60px;">OP SNA_Domain_Class.CNM01.SNANet HAS_VALUE (CHARVAR) ’NETC</p>
+        <hr>
+<h4  style="margin-left: 10px;">Process for Loading the RODM Data Cache</h4>
+
+<p  style="margin-left: 80px;">This section describes the process used to load the RODM data cache using the
+RODM load function. The process steps are first listed in order and described in
+the same order.</p>
+<p  style="margin-left: 80px;">Loading the RODM data cache involves the following steps:</p>
+        <p class="page">244</p>
+        <p  style="margin-left: 80px;">1. “Identifying the Methods to Install”</p>
+        <p  style="margin-left: 80px;">2. “Creating the Class Structure and Object Definitions”</p>
+        <p  style="margin-left: 80px;">3. “Deciding on the Type of Load” on page 246</p>
+        <p  style="margin-left: 80px;">4. “Running the RODM Load Function” on page 248</p>
+<p  style="margin-left: 80px;">5. “Checking the Output Listings” on page 253</p>
+<p  style="margin-left: 60px;">You can use optional steps to change member names and parameter mapping:</p>
+        <ul style="margin-left: 60px;list-style-type: disc"><li>Modify the control table; see “Control Table—EKGCTABL” on page 260.</li>
+            <li>Modify the parameter mapping table; see “Parameter Mapping Table” on page
+262.</li></ul>
+<h4  style="margin-left: 60px;">Identifying the Methods to Install</h4>
+<p  style="margin-left: 60px;">When you load the class structure as part of an initial load or a class structure
+change, you can also install the methods. You identify the methods to be installed
+in the RODM address space in the method name table (EKGINMTB). The table is a
+member of the partitioned data set identified by the EKGIN2 DD statement. See
+“Method Name Table” on page 261 for information about the format of the table
+and other associated DD statements.</p>
+<p  style="margin-left: 60px;">When you run the RODM load function and specify LOAD=STRUCTURE, the
+RODM load function performs the following steps for each method name specified
+in the method name table:</p>
+    <p  style="margin-left: 60px;">1. Searches STEPLIB DD data sets to ensure method is available</p>
+    <p  style="margin-left: 60px;">2. Creates a method object</p>
+    <p  style="margin-left: 60px;">3. Installs the method</p>
+
+<p  style="margin-left: 60px;">If the method is already installed or is specified twice in the method name table,
+the RODM load function will issue the error message:
+EKG8568W -</p>
+
+<p  style="margin-left: 80px;font-family: monospace"><h4  style="margin-left: 60px;"></h4>
+<p  style="margin-left: 80px;">You must have an EKGIN2 file. If you are installing no methods, the EKGIN2 file
+is an empty file. The methods must reside in one of the data sets identified by the
+STEPLIB DD statement in the target RODM start up JCL.</p>
+<h4  style="margin-left: 60px;">Creating the Class Structure and Object Definitions</h4>
+<p  style="margin-left: 60px;">Create sequential files that contain your class structure and object definitions, when
+you are:</p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>v Performing the initial load of the class structure and object definitions into the
+RODM data cache</li>
+    <li>Making changes to the structure of the data model or defined objects in the data
+cache</li></ul>
+<p  style="margin-left: 60px;">These definitions consist of RODM high-level load function statements and RODM
+load function primitives. See “Using Load Function Statements” on page 242 for
+more information about using RODM high-level load function statements and
+RODM load function primitives.</p>
+<h4  style="margin-left: 60px;">Data Definition Statement Labels</h4>
+<p  style="margin-left: 60px;">The RODM load function expects to find the DD statements that declare the
+sequential data set or the concatenation of sequential data sets that contain the
+load function input definitions to be labeled:</p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>EKGIN1 for the class structure definitions</li>
+        <p class="page">245</p>
+    <li>EKGIN3 for the object definitions</li></ul>
+<p  style="margin-left: 60px;">Although this is the load function's expectation, practically, you can put all your
+definitions into a single sequential data set or concatenation of sequential data sets.
+You choose either EKGIN1 or EKGIN3 as the DD name of the DD statement that
+identifies the data set depending on the type of load. See “Deciding on the Type of
+Load” for information about the type of load dependency.</p>
+<p  style="margin-left: 60px;">This technique is especially useful for incremental data cache changes, but it is
+very important that you observe the concatenation caveats described in
+“Concatenation of Data Sets.”</p>
+<h4  style="margin-left: 60px;">Concatenation of Data Sets</h4>
+<p  style="margin-left: 60px;">You can divide the class structure and object definitions into several sequential
+data sets and then concatenate the data sets that contain these definitions. The
+order of the data sets in the concatenation is important. Whether you use RODM
+high-level load function statements or RODM load function primitives, you must
+arrange the files containing the definitions so that:</p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>RODM load function creates any parent class before it creates its children</li>
+        <li>Class structure definitions precede any associated object definitions</li>
+        <li>The statements that create objects are processed before the statements that create
+links between objects</li></ul>
+<p  style="margin-left: 60px;">You can concatenate object definitions so that each data set contains one or more
+object definitions, and a data set can represent a domain, a subarea, or whatever
+makes sense. By structuring your data sets in this way, you can facilitate adding or
+refreshing information for a domain.</p>
+<h4  style="margin-left: 60px;">Definition Examples</h4>
+<p  style="margin-left: 60px;">RODM provides two sample files in the samples library partitioned data set named
+CNMSAMP</p>
+<h6  style="margin-left: 60px;">Member</h6>
+    <h6  style="margin-left: 80px;">Contents</h6>
+<h5  style="margin-left: 60px;">EKGIN1</h5>
+    <p  style="margin-left: 80px;"><p  style="margin-left: 60px;"></p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>Create a class under the UniversalClass</li>
+        <li>Create fields for all data types supported</li>
+<li>Set initial values for the fields</li></ul>
+<h5  style="margin-left: 60px;">EKGIN3</h5>
+<p  style="margin-left: 80px;">EKGIN3:</p>
+    <ul style="margin-left: 60px;list-style-type: disc" ><li>v Create 3 objects</li>
+<li>Set initial values</li></ul>
+<h4  style="margin-left: 40px;">Deciding on the Type of Load</h4>
+<p  style="margin-left: 60px;">The steps in the loading process differ, depending on how you intend to run the
+RODM load function and on what type of load you are performing. You can run
+the RODM load function as an initialization method during a cold start of RODM
+or during a warm start of RODM. You can run the RODM load function by means
+of a JCL job. You can run the RODM load function by means of a module call from
+an application. The RODM load function offers the following load types:</p>
+    <ul style="margin-left: 60px;list-style-type: disc" ><li>“Initialization Load” on page 247</li>
+        <li>“Structure Load Only” on page 247</li>
+<li>“Object Load Only” on page 248</li></ul>
+    <p class="page">246</p>
+    <h4  style="margin-left: 60px;">Initialization Load</h4>
+    <p  style="margin-left: 60px;">
+In an initialization load, you can load the class structure, the names of the methods
+to install, and the object definitions. This is done at RODM cold start by invoking
+EKGLISLM.</p>
+<p  style="margin-left: 60px;">Initialization requires three DD statements for input data with the following labels:</p>
+<h5  style="margin-left: 60px;">EKGIN1</h5>
+<p  style="margin-left: 80px;">Class structure definitions</p>
+<h5  style="margin-left: 60px;">EKGIN2</h5>
+<p  style="margin-left: 80px;">Method name table</p>
+<h5  style="margin-left: 60px;">EKGIN3
+</h5>
+<p  style="margin-left: 60px;">Object definitions</p>
+<p  style="margin-left: 60px;">When RODM initialization takes place, the RODM load function (EKGLISLM), is
+triggered to create the RODM structure. This initial load method runs an
+object-independent method that sets the values of the objects in the RODM data
+cache. After completion of the initial load, further changes are usually
+modifications of defined objects or the addition of new object definitions.</p>
+<p  style="margin-left: 60px;">In an initial load, you cannot directly specify the RODM load function parameters.
+RODM uses a parameter mapping table (EKGPTENU). If you want to change the
+default values of the parameters, change the default values in the parameter
+mapping table. When the load function is initially run, the load function
+parameters get their default values from the parameter mapping table. However, the load function ignores any abbreviations or string substitutions in the table. See
+“Parameter Mapping Table” on page 262 for information about creating your own
+parameter mapping table or modifying the table copied during RODM installation.
+For a display of the parameter mapping table that EKGPTENU supplied with
+RODM, see Figure 60 on page 263.</p>
+<h5  style="margin-left: 60px;">Structure Load Only</h5>
+<p  style="margin-left: 60px;">A structure load is a load in which you load only the methods and the class
+structure into RODM. This is generally done as a job containing JCL or a module
+call while RODM is running.</p>
+    <p style="margin-left: 60px;"><b>EKGIN2 Data Definition:</b> RODM load function first processes the data definition
+statement with the label EKGIN2, which specifies the partitioned data set that
+contains the method name table in one of its members. The name of the member
+that contains the method name table is found by RODM in the control table
+EKGCTABL. For information about control table EKGCTABL and how to
+optionally modify or create a new table, see “Control Table—EKGCTABL” on page
+260.</p>
+    <p  style="margin-left: 60px;">For each entry in the method name table, the RODM load function:</p>
+<p  style="margin-left: 60px;">1. Searches the data sets identified by the STEPLIB DD statement in the RODM
+start up JCL to see if the method is installed. If the method is not installed, a
+return code of 8 and a reason code of 81 is returned and the load function
+    issues an error message.</p>
+<p  style="margin-left: 60px;">2. Converts into RODM user API calls the load function primitives that associate
+the entries in the method name table with the MethodName fields of the
+appropriate classes. In other words, adds an object to the RODM EKG_Method
+    class.</p>
+<p  style="margin-left: 60px;">3. Loads the method into the RODM address space.</p>
+    <p class="page">247</p>
+    <p  style="margin-left: 60px;"><b>EKGIN1 Data Definition:</b> During a structure load, whether an initial structure
+load or a structure change, the RODM load function processes the EKGIN1 data
+definition statement after the EKGIN2 data definition statement processing is
+complete.</p>
+<p  style="margin-left: 60px;">EKGIN1 identifies the sequential data set or concatenation of sequential data sets
+that contain the load function input statements that specify the classes and their
+parents.</p>
+<p  style="margin-left: 60px;">The RODM load function reads this input as a stream of class definitions in
+sequential order, and parses all RODM high-level load function statements into
+RODM load function primitives. The RODM load function then converts the load
+function primitives to a succession of RODM user API calls, which create the
+classes in your RODM data cache.</p>
+<p  style="margin-left: 60px;">The RODM load function reads this input as a stream of class definitions in
+sequential order, and parses all RODM high-level load function statements into
+RODM load function primitives. The RODM load function then converts the load
+function primitives to a succession of RODM user API calls, which create the
+classes in your RODM data cache</p>
+<p  style="margin-left: 60px;">//EKGIN1 DD DSN=parent.class.input.dataset1,DISP=SHR (All parent classes)</p>
+<p  style="margin-left: 60px;">// DD DSN=child.class.input.dataset1,DISP=SHR (Domain 1 children )</p>
+<p  style="margin-left: 60px;">// DD DSN=child.class.input.dataset2,DISP=SHR (Domain 2 children )</p>
+<p  style="margin-left: 60px;">// DD DSN=child.class.input.dataset3,DISP=SHR (Domain 3 children )</p>
+    <p  style="margin-left: 60px;"><i>Figure 49. Data Set Concatenation for EKGIN</i></p>
+<h4  style="margin-left: 60px;">Object Load Only</h4>
+<p  style="margin-left: 60px;">In an object load, you can load only the object definitions. You can load object
+definitions as a job or as a module call while RODM is running. The object load
+uses one DD statement labeled EKGIN3 to identify the sequential data set or
+concatenation of sequential data sets that contain the object definitions for the load.</p>
+<p  style="margin-left: 60px;">When you concatenate data sets, be sure that the statements that create objects are
+processed before the statements that create links between objects. Both objects
+being linked must be in RODM when the link statement is processed.
+Concatenation takes the standard z/OS format for concatenated data sets. Figure 50
+shows a concatenation of data sets for the EKGIN3 DD statement.</p>
+<p  style="margin-left: 60px;">//EKGIN3 DD DSN=object.instance.input.dataset1,DISP=SHR (Domain 1)</p>
+    <p  style="margin-left: 60px;">// DD DSN=object.instance.input.dataset2,DISP=SHR (Domain 2)</p>
+<p  style="margin-left: 60px;">// DD DSN=object.instance.input.dataset3,DISP=SHR (Domain 3)</p>
+<p  style="margin-left: 60px;"><i>Figure 50. Data Set Concatenation for EKGIN3</i></p>
+<h4  style="margin-left: 60px;">Running the RODM Load Function</h4>
+<p  style="margin-left: 60px;">This topic describes running the RODM load function, plus considerations when
+running the load function, in the following order</p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>The load function as an initialization method</li>
+        <li>Invoking the load function as a batch job</li>
+        <li>Running the load function from a module</li>
+<li>Considerations when running the load function</li></ul>
+
+<p  style="margin-left: 60px;">You can run the RODM load function by running it as an initialization method, as
+a job, or as a module call. A RODM load function job can parse the data model,
+load the data model into the RODM data cache, or verify the data model.</p>
+    <p class="page">248</p>
+
+<p  style="margin-left: 60px;">A good practice is to parse your data model definition before you attempt to load
+it. This can reduce the number of errors that occur during the load. This practice
+enables you to identify and correct errors in your load function input statement
+syntax prior to loading these definitions into your RODM data cache.</p>
+<h4  style="margin-left: 60px;">The Load Function as an Initialization Method</h4>
+<p  style="margin-left: 60px;">Use the initialization method provided with the NetView program or you can
+write one. In either case, before the initialization method can be triggered, an
+object with the name of the method must be created in the EKG_Method class by
+the user or by the RODM load function.</p>
+<h4  style="margin-left: 60px;"></h4>
+<p  style="margin-left: 60px;">The initialization method that is supplied by the NetView program has two parts:</p>
+<h5  style="margin-left: 60px;">EKGLISLM</h5>
+<p  style="margin-left: 80px;">Loads the methods defined in the method name table identified by the
+EKGIN2 DD statement; loads the class structure definitions in the
+sequential data set or concatenation of sequential data sets identified by
+the EKGIN1 DD statement; and then triggers EKGLIILM.</p>
+<h5  style="margin-left: 60px;">EKGLIILS</h5>
+<p  style="margin-left: 80px;">Loads the object definitions in the sequential data set or concatenation of
+sequential data sets identified by the EKGIN3 DD statement.</p>
+<p  style="margin-left: 60px;">EKGLISLM and EKGLIILM run as methods in the RODM address space. These
+methods use the environment that RODM passes to them and operate as
+object-independent methods.</p>
+<h4  style="margin-left: 60px;"></h4>
+    <p  style="margin-left: 60px;"><i>Cold Start (Initialization):</i> To initialize RODM and load the data cache from a
+cold start, you specify the name of the initialization method using the INIT=
+parameter of the RODM start up command. You run a program (EKGTC000),
+which triggers EKGLISLM, the load function initialization method, which in turn
+triggers EKGLIILM. Because a cold start requires a structure load, you do not
+specify INIT=EKGLIILM as a parameter of the RODM start up command for a
+        cold start.</p>
+<p  style="margin-left: 60px;">The NetView program provides an example of a RODM startup procedure named
+EKGXRODM. This procedure performs an initialization load, but before running
+this start up procedure, make the following modifications to the start up procedure
+JCL</p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>Change the specification of USER.METHODS for DSN= parameter on the
+STEPLIB DD statement to reflect the name of the partitioned data set containing
+your user-written methods. If there are none, comment out or delete this
+        statement.</li>
+    <li>Ensure that EKGIN1 and EKGIN3 DD statements identify your class structure
+and object definitions. The supplied procedure identifies data sets that contain
+        examples of how to code the definitions.</li><li> Remove the comment delimiters from all other JCL statements.</li></ul>
+    <p  style="margin-left: 60px;">You run the procedure by entering:</p>
+<p  style="margin-left: 60px;font-family: monospace">S EKGXRODM,TYPE=C,INIT=EKGLISLM</p>
+<p  style="margin-left: 60px;">In this example:</p>
+    <ul style="margin-left: 60px;list-style-type: disc" ><li>EKGXRODM is the procedure name.</li>
+        <li>TYPE=C specifies a cold start operation. </li>
+        <li>INIT=EKGLISLM specifies the name of the method to trigger. </li></ul>
+    <p class="page">249</p>
+    <p  style="margin-left: 60px;"><i>Warm Start: </i>Although you can use EKGLISLM to load the class structure and
+object definitions into the data cache at warm start, just like a cold start, you
+normally specify EKGLIILM for the INIT= parameter to load only the object
+definitions. Usually you are warm starting to change the network configuration or
+as a result of an error.</p>
+<p  style="margin-left: 60px;">NetView provides an example RODM start up procedure named EKGXRODM. Use
+it to perform the object definition load. Before running the procedure, make the
+following modifications to the sample procedure's JCL to load only the object
+definitions:</p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>Comment out the C Library in the STEPLIB DD, if necessary, as described in the
+        notes in the procedure heading.</li>
+        <li>Ensure that the EKGIN3 DD statement identifies your definitions. The supplied
+procedure identifies the data set that contains examples of how to code the
+            object definitions.</li>
+        <li>Remove the comment delimiters from only the EKGLUTB, EKGPRINT and
+EKGIN3 DD statement</li></ul>
+    <p  style="margin-left: 60px;">Run the procedure by entering</p>
+<p  style="margin-left: 60px;font-family: monospace">S EKGXRODM,TYPE=W,INIT=EKGLIILM</p>
+<p  style="margin-left: 60px;">where: </p>
+    <ul style="margin-left: 60px;list-style-type: disc"><li>EKGXRODM is the procedure name.</li>
+<li>TYPE=W specifies a warm start operation. </li>
+        <li>TYPE=W specifies a warm start operation.</li>
+        <li>INIT=EKGLIILM specifies the name of the method to trigger.</li></ul>
+<h4  style="margin-left: 60px;">Invoking the Load Function As a Batch Job</h4>
+<p  style="margin-left: 60px;">You can run the RODM load function as a batch job. The RODM load function
+uses the verified user ID of the job submitter as the User_appl_ID to connect to
+RODM. The verified user ID is obtained from the system authorization facility. This user ID must have a minimum RODM authorization level of 3 or 5,
+depending on the load function statements used. See “Authorization and
+Authorization Levels” on page 252 for the required authorization level.</p>
+<p style="margin-left: 60px;">Your job can load:</p>
+<ul style="margin-left: 60px;list-style-type: disc"><li>The object definitions only</li>
+<li>The methods and class structure definitions
+</li>
+<li>The methods and all the definitions</li></ul>
+<p  style="margin-left: 60px;">The NetView program supplies a sample job and procedure to run the RODM load
+function as a batch job. The sample job EKGLLOAD calls the procedure
+EKGLOADP and passes the parameters you specify. The following sections show
+how to update the EKGLLOAD sample job for each of the three ways you can load
+    RODM.</p>
+<p style="margin-left: 60px;"><i>Loading Object Definitions Only:</i> Copy the sample job EKGLLOAD and update
+it to load object definitions into RODM. Update the system level qualifier in the
+EKGLOADP procedure if you do not use NETVIEW.V6R2M1 as the high-level
+qualifiers of the RODM data sets on your system. The following steps give
+example values for the parameters passed by the EKGLLOAD job to the
+EKGLOADP procedure. Provide your own values for each parameter.</p>
+
+<p  style="margin-left: 60px;">1. Update the JOB statement with your accounting information.</p>
+<p  style="margin-left: 60px;">2. Fill in RODMNAME with the name of your RODM.</p>
+<p  style="margin-left: 60px;">3. Fill in EKGIN3 with the name of the data set that contains your object
+definitions.</p>
+<p class="page">250</p>
+    </ul>
+    </h4>
+    </h4>
+</html>
+    
+
+
